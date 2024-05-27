@@ -50,30 +50,29 @@ class SliderServices
 
     public function delete($id)
     {
-        {
-            try {
-                // Retrieve the slider record
-                $slider = Slider::findOrFail($id);
+        try {
+            // Retrieve the slider record
+            $slider = Slider::findOrFail($id);
 
-                // Get the file path
-                $filePath = 'uploads/' . $slider->thumb;
+            // Get the file path
+            $filePath = 'uploads/' . $slider->thumb;
 
-                // Delete the file if it exists
-                if (Storage::disk('public')->exists($filePath)) {
-                    Storage::disk('public')->delete($filePath);
-                }
-
-                // Delete the slider record from the database
-                $slider->delete();
-
-                Session::flash('success', 'Slider deleted successfully');
-            } catch (\Exception $err) {
-                Session::flash('error', $err->getMessage());
-                return false;
+            // Delete the file if it exists
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
             }
 
+            // Delete the slider record from the database
+            $slider->delete();
+
+            Session::flash('success', 'Slider deleted successfully');
             return true;
+        } catch (\Exception $err) {
+            Session::flash('error', $err->getMessage());
+            return false;
         }
+
+        return true;
     }
 
 
@@ -107,6 +106,7 @@ class SliderServices
                 'sort_by' => (int) $request->input('sort_by'),
             ]);
             Session::flash('success', 'Slider updated successfully');
+            return true;
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
             return false;

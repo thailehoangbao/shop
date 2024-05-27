@@ -7,7 +7,7 @@
     @include('admin.session')
 
     <!-- form start -->
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
 
         <div class="card-body">
 
@@ -66,6 +66,18 @@
                     <input class="form-check-input" value="0" name="active" id="non-active" type="radio" {{ $menu->active == 0 ? 'checked=""' : "" }}>
                     <label for="nonactive" class="form-check-label">Không</label>
                 </div>
+            </div>
+
+            <div class="form-control">
+                <label for="file">Upload Hình Ảnh</label>
+                <input type="file" name="thumb" id="file" placeholder="Input File Image">
+                @error('thumb')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mt-2">
+                <img src="{{ asset('storage/uploads/'.$menu->thumb) }}" alt="{{ $menu->name }}" width="100" height="100">
             </div>
 
         </div>

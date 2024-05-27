@@ -7,6 +7,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Hình Ảnh</th>
             <th>Price</th>
             <th>Price_sale</th>
             <th>Active</th>
@@ -20,6 +21,9 @@
             <td>{{ $product['id'] }}</td>
             <td>{{ $product['name'] }}</td>
             <td>{{ $product['description'] }}</td>
+            <td>
+                <img src="{{ asset('storage/uploads/'.$product->thumb) }}" alt="{{ $product->name }}" width="30" height="30">
+            </td>
             <td>{{ $product['price'] }}</td>
             <td>{{ $product['price_sale'] }}</td>
             <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>

@@ -17,7 +17,9 @@
         <tr>
             <td>{{ $slider['id'] }}</td>
             <td>{{ $slider['name'] }}</td>
-            <td>{{ $slider['thumb']  }}</td>
+            <td>
+            <img src="{{ asset('storage/uploads/'.$slider->thumb) }}" alt="{{ $slider->name }}" width="30" height="30">
+            </td>
             <td>{{ $slider['updated_at'] }}</td>
             <td>{!! \App\Helpers\Helper::active($slider->active) !!}</td>
             <td class="d-flex">

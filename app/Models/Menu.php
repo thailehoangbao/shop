@@ -15,6 +15,7 @@ class Menu extends Model
         'description',
         'content',
         'slug',
-        'active'
+        'active',
+        'thumb'
     ];
 }

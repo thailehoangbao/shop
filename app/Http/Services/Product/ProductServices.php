@@ -5,6 +5,7 @@ namespace App\Http\Services\Product;
 use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ProductServices
 {
@@ -36,11 +37,11 @@ class ProductServices
 
     public function create($request)
     {
-       // Handle the file upload
+        // Handle the file upload
         if ($request->hasFile('thumb')) {
-        $file = $request->file('thumb');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-        $filePath = $file->storeAs('uploads', $fileName, 'public'); // stores file in storage/app/public/uploads
+            $file = $request->file('thumb');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads', $fileName, 'public'); // stores file in storage/app/public/uploads
         }
 
         try {
@@ -77,10 +78,23 @@ class ProductServices
 
     public function update($request, $product)
     {
+        // Check if the request has a new file and handle the file upload
         if ($request->hasFile('thumb')) {
+            // Get the existing file path
+            $oldFilePath = 'uploads/' . $product->thumb;
+
+            // Delete the old file if it exists
+            if (Storage::disk('public')->exists($oldFilePath)) {
+                Storage::disk('public')->delete($oldFilePath);
+            }
+
+            // Store the new file
             $file = $request->file('thumb');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('uploads', $fileName, 'public'); // stores file in storage/app/public/uploads
+            $filePath = $file->storeAs('uploads', $fileName, 'public');
+        } else {
+            // If no new file, retain the old file name
+            $fileName = $product->thumb;
         }
         try {
             $product->update([
@@ -106,14 +120,26 @@ class ProductServices
 
     public function delete($id)
     {
-        $product = Product::find($id);
-        if ($product) {
+        try {
+            $product = Product::findOrFail($id);
+
+            // Get the file path
+            $filePath = 'uploads/' . $product->thumb;
+
+
+            // Delete the file if it exists
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            }
+
             $product->delete();
+
             Session::flash('success', 'Product deleted successfully');
             return true;
+        } catch (\Exception $err) {
+            Session::flash('error', $err->getMessage());
+            return false;
         }
-        Session::flash('error', 'Product not found');
-        return false;
     }
 }
 
@@ -143,4 +169,3 @@ class ProductServices
 // <div class="alert alert-danger">{{ $message }}</div>
 // @enderror
 // </div>
-

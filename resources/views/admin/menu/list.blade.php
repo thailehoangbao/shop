@@ -7,7 +7,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
-            <th>Content</th>
+            <th>Relationship</th>
+            <th>Hình Ảnh</th>
             <th>Active</th>
             <th>Updated_at</th>
             <th>Action</th>
@@ -19,7 +20,16 @@
             <td>{{ $menu['id'] }}</td>
             <td>{{ $menu['name'] }}</td>
             <td>{{ $menu['description'] }}</td>
-            <td>{{ $menu['content'] }}</td>
+            <td>
+                @if($menu->parent_id == 0)
+                <span class="badge bg-primary">Danh mục cha</span>
+                @else
+                <span class="badge bg-secondary">Danh mục con</span>
+                @endif
+            </td>
+            <td>
+                <img src="{{ asset('storage/uploads/'.$menu->thumb) }}" alt="{{ $menu->name }}" width="30" height="30">
+            </td>
             <td>{!! \App\Helpers\Helper::active($menu->active) !!}</td>
             <td>{{ $menu['updated_at'] }}</td>
             <td class="d-flex">

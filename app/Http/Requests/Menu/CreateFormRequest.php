@@ -25,6 +25,7 @@ class CreateFormRequest extends FormRequest
             'name' => 'required',
             'content' => 'required',
             'description' => 'required',
+            'thumb' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
@@ -33,6 +34,7 @@ class CreateFormRequest extends FormRequest
             'name.required' => 'Vui lòng nhập tên danh mục',
             'content.required' => 'Nội dung không được để trống',
             'description.required' => 'Mô tả không được để trống',
+            'thumb.required' => 'Ảnh sai kích thước, định dạng hoặc trống',
         ];
     }
 }
