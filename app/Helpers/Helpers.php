@@ -35,9 +35,19 @@ class Helper
             : '<span class="btn btn-success btn-xs">YES</span>';
     }
 
+    public static function totalPrice($lists)
+    {
+        $sum = 0;
+        foreach ($lists as $list) {
+            $sum += ($list->product->price) * ($list->amount);
+        }
+
+        return $sum;
+    }
+
     public static function setLocalStore($key, $value)
     {
-        
+
     }
 }
-// \'/admin/menus/destroy\'
+

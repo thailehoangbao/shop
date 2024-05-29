@@ -1,4 +1,3 @@
-
 <header>
     <!-- Header desktop -->
     <div class="container-menu-desktop">
@@ -44,16 +43,16 @@
 
                         @foreach($menus as $key => $menu)
                         @if($menu->parent_id == 0)
-                            <li>
-                                <a href="#">{{ $menu->name }}</a>
-                                <ul class="sub-menu">
-                                    @foreach($menus as $menuChild)
-                                        @if($menuChild->parent_id == $menu->id)
-                                            <li><a href="/category/{{ $menuChild->id }}">{{ $menuChild->name }}</a></li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </li>
+                        <li>
+                            <a href="#">{{ $menu->name }}</a>
+                            <ul class="sub-menu">
+                                @foreach($menus as $menuChild)
+                                @if($menuChild->parent_id == $menu->id)
+                                <li><a href="/category/{{ $menuChild->id }}">{{ $menuChild->name }}</a></li>
+                                @endif
+                                @endforeach
+                            </ul>
+                        </li>
                         @endif
                         @endforeach
                     </ul>
@@ -61,15 +60,24 @@
 
                 <!-- Icon header -->
                 <div class="wrap-icon-header flex-w flex-r-m">
-                    <div>
-                        <a href="/client/login" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11">Đăng Nhập</a>
+                    <div id="auth-link">
+                        <!-- Blade kiểm tra xem người dùng đã đăng nhập hay chưa -->
+                        @if (Auth::check())
+                        <a id="logout-link" href="{{ route('client.logout') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng Xuất</a>
+                        <form id="logout-form" action="{{ route('client.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        @else
+                            <a href="{{ route('client.login') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11">Đăng Nhập</a>
+                        @endif
                     </div>
+
 
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="1">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{$amounts}}">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 

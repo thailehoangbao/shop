@@ -1,8 +1,5 @@
 (function ($) {
     "use strict";
-    // main.js
-
-    // main.js
 
     function saveUserToLocalStorage(user) {
         localStorage.setItem("user", JSON.stringify(user));
@@ -49,6 +46,16 @@
             });
         });
     });
+
+    function deleteUser () {
+        localStorage.removeItem("user");
+    }
+
+    $(document).ready(function () {
+        $("#logout-link").on("click", function () {
+            deleteUser();
+        });
+    })
 
     /*[ Load page ]
     ===========================================================*/

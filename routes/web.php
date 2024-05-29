@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
+use App\Http\Controllers\Client\Users\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,10 +21,11 @@ Route::prefix('admin')->group(function () {
     Route::post('users/login/store', [LoginController::class, 'store']);
     Route::get('users/register', [RegisterController::class, 'index'])->name('register');
     Route::post('users/register/store', [RegisterController::class, 'store']);
+
+    Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
 
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //kiểm tra vào link admin/users/main thì phải vượt qua dc middleware
 Route::middleware(['auth'])->group(function () {
@@ -67,6 +70,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{slider}', [SliderController::class, 'show'])->name('sliders.edit');
             Route::post('edit/{slider}', [SliderController::class, 'update']);
         });
+
+        #orders
+        Route::prefix('orders')->group(function () {
+            // Route::get('add', [AdminOrderController::class, 'create'])->name('orders.add');
+            // Route::post('add', [AdminOrderController::class, 'store']);
+            Route::get('list', [AdminOrderController::class, 'index'])->name('orders.list');
+
+            Route::delete('destroy', [AdminOrderController::class, 'destroy']);
+
+            Route::get('edit/{order}', [AdminOrderController::class, 'show'])->name('orders.edit');
+            Route::post('edit/{order}', [AdminOrderController::class, 'update']);
+        });
     });
 });
 
@@ -76,11 +91,13 @@ Route::middleware(['auth'])->group(function () {
 Route::prefix('/')->group(function () {
     Route::get('/', [ClientMainController::class, 'index'])->name('home');
     Route::prefix('client')->group(function () {
-        Route::get('login', [ClientLoginController::class, 'index']);
-        Route::post('login', [ClientLoginController::class, 'store']);
+        Route::get('login', [ClientLoginController::class, 'index'])->name('client.login');
+        Route::post('login', [ClientLoginController::class, 'store'])->name('client.login.store');
 
         Route::get('register', [ClientRegisterController::class, 'index']);
         Route::post('register', [ClientRegisterController::class, 'store']);
+
+        Route::post('logout', [ClientLoginController::class, 'logout'])->name('client.logout');
     });
 
     Route::get('category/{menu}', [CategoryController::class, 'index']);

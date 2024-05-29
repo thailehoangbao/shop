@@ -5,7 +5,7 @@ namespace App\Http\View\Composers;
 use App\Models\Order;
 use Illuminate\View\View;
 
-class AmountProductComposer
+class ListProductCartComposer
 {
     public function __construct(public Order $orders)
     {
@@ -15,22 +15,14 @@ class AmountProductComposer
     {
         // Get the authenticated user
         $user = auth()->user();
-
         // Check if user is authenticated
         if ($user) {
             // Get the user ID
             $user_id = $user->id;
-
-            // Retrieve the total amounts of products for the authenticated user
-            $amounts = Order::where('user_id', $user_id)->pluck('amount');
-            $sum = 0;
-            foreach ($amounts as $value) {
-                $sum += $value;
-            }
-
-            // Pass the amounts to the view
-            $view->with('amounts', $sum);
+            $lists = Order::where('user_id', $user_id)->with('product')->get();
+            // dd($lists->toArray());
+            $view->with('lists', $lists);
         }
-        $view->with('amounts', 0);
+        $view->with('lists', []);
     }
 }
