@@ -2,14 +2,13 @@
 
 @section('body')
 <!-- Product -->
-
 <div class="bg0 m-t-100 p-b-140">
     <div class="container">
         @include('client.category.navbar')
 
 
         @yield('contentCategory')
-        
+
 
         <!-- Load more -->
         <div class="flex-c-m flex-w w-full p-t-45">
@@ -18,5 +17,6 @@
             </a>
         </div>
     </div>
+
 </div>
 @endsection

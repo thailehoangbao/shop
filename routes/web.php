@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Client\CategoryController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
+use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
 use Illuminate\Support\Facades\Route;
@@ -84,6 +85,10 @@ Route::prefix('/')->group(function () {
 
     Route::get('category/{menu}', [CategoryController::class, 'index']);
     Route::get('parentCategory/{menu}', [CategoryController::class, 'parentCategory']);
+
+    Route::middleware(['auth'])->group(function () {
+        Route::post('orders', [OrderController::class, 'store'])->name('orders.store');
+    });
 });
 
 

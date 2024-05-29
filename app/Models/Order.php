@@ -14,6 +14,8 @@ class Order extends Model
         'product_id',
         'amount',
         'note',
+        'size',
+        'color',
     ];
 
     public function user()

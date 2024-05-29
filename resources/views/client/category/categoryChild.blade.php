@@ -3,7 +3,7 @@
 @section('contentCategory')
 <div class="row isotope-grid" style="display: flex; flex-direction: row;">
     @foreach($categories as $category)
-    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" {{$category->menu_id}}" data-product='@json($category)'>
         <div class="block2">
             <div class="block2-pic hov-img0">
                 <img src="{{ asset('storage/uploads/'.$category->thumb) }}" alt="{{$category->name}}" width="200" height="300">
