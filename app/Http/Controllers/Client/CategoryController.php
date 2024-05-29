@@ -20,8 +20,18 @@ class CategoryController extends Controller
     public function index(Menu $menu)
     {
         $categories = $this->categoryService->getListCategory($menu->id);
-        return view('client.category.layout',[
+        return view('client.category.categoryChild',[
             'categories' => $categories,
+            'menu' => $menu
+        ]);
+
+    }
+
+    public function parentCategory(Menu $menu)
+    {
+        $products = $this->categoryService->getListParentCategory($menu->id);
+        return view('client.category.categoryParent',[
+            'products' => $products,
             'menu' => $menu
         ]);
     }

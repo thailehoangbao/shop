@@ -24,4 +24,9 @@ class Product extends Model
     {
         return $this->belongsTo(Menu::class, 'menu_id');
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'product_id');
+    }
 }

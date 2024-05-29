@@ -1,5 +1,6 @@
 <title>Home</title>
 <meta charset="UTF-8">
+<meta name="csrf-token" content="{{ csrf_token() }}"> <!-- Thêm dòng này -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="/template/client/images/icons/favicon.png" />
@@ -30,4 +31,5 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/client/css/util.css">
 <link rel="stylesheet" type="text/css" href="/template/client/css/main.css">
+<script src="{{ asset('template/client/js/main.js') }}"></script>
 <!--===============================================================================================-->

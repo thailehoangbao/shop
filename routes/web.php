@@ -4,16 +4,23 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Client\CategoryController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
+use App\Http\Controllers\Client\Users\ClientLoginController;
+use App\Http\Controllers\Client\Users\ClientRegisterController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::prefix('admin')->group(function () {
+    Route::get('users/login', [LoginController::class, 'index'])->name('login');
+    Route::post('users/login/store', [LoginController::class, 'store']);
+    Route::get('users/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('users/register/store', [RegisterController::class, 'store']);
+});
 
 
-Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
-Route::post('admin/users/login/store', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //kiểm tra vào link admin/users/main thì phải vượt qua dc middleware
@@ -62,9 +69,23 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/', [ClientMainController::class, 'index']);
 
-Route::get('category/{menu}', [CategoryController::class, 'index']);
+
+
+Route::prefix('/')->group(function () {
+    Route::get('/', [ClientMainController::class, 'index'])->name('home');
+    Route::prefix('client')->group(function () {
+        Route::get('login', [ClientLoginController::class, 'index']);
+        Route::post('login', [ClientLoginController::class, 'store']);
+
+        Route::get('register', [ClientRegisterController::class, 'index']);
+        Route::post('register', [ClientRegisterController::class, 'store']);
+    });
+
+    Route::get('category/{menu}', [CategoryController::class, 'index']);
+    Route::get('parentCategory/{menu}', [CategoryController::class, 'parentCategory']);
+});
+
 
 
 // <!-- {!! App\Helpers\Helper::menu($menus) !!} -->
