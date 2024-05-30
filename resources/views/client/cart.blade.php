@@ -36,7 +36,7 @@
 
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">
-						Total: {{ \App\Helpers\Helper::totalPrice($lists) }} VND
+						Total: {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">

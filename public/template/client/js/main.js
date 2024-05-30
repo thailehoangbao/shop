@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    function saveUserToLocalStorage(user) {
+    function saveUserToLocalStorage(user, token) {
         localStorage.setItem("user", JSON.stringify(user));
     }
 
@@ -27,10 +27,18 @@
                 data: formData,
                 dataType: "json",
                 success: function (response) {
-                    console.log(response)
-                    if (response.status) {
-                        saveUserToLocalStorage(response.user);
+                    if (response.success) {
+                        const newUser = {
+                            ...response.user,
+                            token: response.token,
+                        };
+                        saveUserToLocalStorage(newUser);
                         window.location.href = response.redirect_url; // Chuyển hướng đến trang chủ
+                        // Thêm đoạn script để reload lại trang
+                        
+                        window.addEventListener("load", function () {
+                            location.reload();
+                        });
                     } else {
                         $("#error-message").text(response.message);
                     }
@@ -47,7 +55,6 @@
                 },
             });
         });
-
 
         // $("#register-form").on("submit", function (e) {
         //     e.preventDefault();
@@ -85,7 +92,7 @@
         // });
     });
 
-    function deleteUser () {
+    function deleteUser() {
         localStorage.removeItem("user");
     }
 
@@ -93,7 +100,7 @@
         $("#logout-link").on("click", function () {
             deleteUser();
         });
-    })
+    });
 
     /*[ Load page ]
     ===========================================================*/
@@ -391,7 +398,7 @@
         e.preventDefault();
 
         var product = $(".js-modal1").data("product");
-        var form = $(this).closest('form');
+        var form = $(this).closest("form");
         if (isLoggedIn()) {
             var size = form.find('select[name="size"]').val();
             var color = form.find('select[name="color"]').val();

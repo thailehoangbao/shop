@@ -21,7 +21,7 @@
             <img src="{{ asset('storage/uploads/'.$slider->thumb) }}" alt="{{ $slider->name }}" width="30" height="30">
             </td>
             <td>{{ $slider['updated_at'] }}</td>
-            <td>{!! \App\Helpers\Helper::active($slider->active) !!}</td>
+            <td>{!! \App\Helpers\Helpers::active($slider->active) !!}</td>
             <td class="d-flex">
                 <a href="/admin/sliders/edit/{{ $slider->id}}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>
                 <a href="/admin/sliders/edit/{{ $slider->id}}" class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></a>

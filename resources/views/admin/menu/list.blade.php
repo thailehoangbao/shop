@@ -30,7 +30,7 @@
             <td>
                 <img src="{{ asset('storage/uploads/'.$menu->thumb) }}" alt="{{ $menu->name }}" width="30" height="30">
             </td>
-            <td>{!! \App\Helpers\Helper::active($menu->active) !!}</td>
+            <td>{!! \App\Helpers\Helpers::active($menu->active) !!}</td>
             <td>{{ $menu['updated_at'] }}</td>
             <td class="d-flex">
                 <a href="/admin/menus/edit/{{ $menu->id}}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>

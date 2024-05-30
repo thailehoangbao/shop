@@ -1,0 +1,7 @@
+composer require tymon/jwt-auth
+dk ở provider
+    Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+tạo file config/jwt.php
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+php artisan jwt:secret

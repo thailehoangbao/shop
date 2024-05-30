@@ -26,7 +26,7 @@
             </td>
             <td>{{ $product['price'] }}</td>
             <td>{{ $product['price_sale'] }}</td>
-            <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>
+            <td>{!! \App\Helpers\Helpers::active($product->active) !!}</td>
             <td>{{ $product['updated_at'] }}</td>
             <td class="d-flex">
                 <a href="/admin/products/edit/{{ $product->id}}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>
