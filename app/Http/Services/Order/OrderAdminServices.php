@@ -4,6 +4,7 @@
 namespace App\Http\Services\Order;
 
 use App\Models\Order;
+use Illuminate\Support\Facades\Session as FacadesSession;
 
 class OrderAdminServices {
 
@@ -17,5 +18,22 @@ class OrderAdminServices {
     {
         $orders = Order::with(['user', 'product'])->find($order->id);
         return $orders;
+    }
+
+    public function update($request, Order $order)
+    {
+        try {
+            $order->size = $request->input('size');
+            $order->color = $request->input('color');
+            $order->note = $request->input('note');
+
+            $order->save();
+            FacadesSession::flash('success', 'order updated successfully');
+            return true;
+        } catch (\Exception $err) {
+            FacadesSession::flash('error', $err->getMessage());
+            return false;
+        }
+        return true;
     }
 }

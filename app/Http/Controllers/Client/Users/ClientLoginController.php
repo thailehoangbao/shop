@@ -28,12 +28,17 @@ class ClientLoginController extends Controller
         if (auth()->attempt($credentials)) {
             $user = Auth::user();
             return response()->json([
-                'success' => true,
-                'user' => $user
+                'status' => 'success',
+                'message' => 'Đăng nhập thành công',
+                'user' => $user,
+                'redirect_url' => route('home') // Route 'home'
             ]);
         }
 
-        return back()->with('error', 'Invalid credentials');
+        return response()->json([
+            'success' => false,
+            'message' => 'Thông tin đăng nhập không chính xác'
+        ]);
     }
 
     public function logout() {

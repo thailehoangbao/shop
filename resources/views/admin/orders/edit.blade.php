@@ -12,7 +12,8 @@
 
             <div class="form-group">
                 <label for="name">Tên Người Mua</label>
-                <input disabled  value="{{$order->user->email}}" ="text" class="form-control" id="name">
+                <input disabled  value="{{$order->user->email}}" type="text" class="form-control" id="name">
+                <input hidden  value="{{$order->user->email}}" type="text" class="form-control" id="name">
                 @error('name')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -21,6 +22,7 @@
             <div class="form-group">
                 <label for="name">Size</label>
                 <input type="text" name="size" disabled value="{{$order->size}}" class="form-control" id="size" placeholder="Enter Size">
+                <input type="text" name="size" hidden value="{{$order->size}}" class="form-control" id="size" placeholder="Enter Size">
                 @error('size')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -29,6 +31,7 @@
             <div class="form-group">
                 <label for="name">Số Lượng</label>
                 <input type="text" name="amount" disabled value="{{$order->amount}}" class="form-control" id="amount" placeholder="Enter amount">
+                <input type="text" name="amount" hidden value="{{$order->amount}}" class="form-control" id="amount" placeholder="Enter amount">
                 @error('amount')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -37,6 +40,7 @@
             <div class="form-group">
                 <label for="name">Màu Sắc</label>
                 <input type="text" name="color" disabled value="{{$order->color}}" class="form-control" id="color" placeholder="Enter color">
+                <input type="text" name="color" hidden value="{{$order->color}}" class="form-control" id="color" placeholder="Enter color">
                 @error('color')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror

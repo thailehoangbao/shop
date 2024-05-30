@@ -25,10 +25,12 @@
                 type: "POST",
                 url: "/client/login", // Đường dẫn URL phải đúng theo route bạn định nghĩa
                 data: formData,
+                dataType: "json",
                 success: function (response) {
-                    if (response.success) {
+                    console.log(response)
+                    if (response.status) {
                         saveUserToLocalStorage(response.user);
-                        window.location.href = "/"; // Chuyển hướng đến trang chủ
+                        window.location.href = response.redirect_url; // Chuyển hướng đến trang chủ
                     } else {
                         $("#error-message").text(response.message);
                     }
@@ -45,6 +47,42 @@
                 },
             });
         });
+
+
+        // $("#register-form").on("submit", function (e) {
+        //     e.preventDefault();
+
+        //     var formData = {
+        //         email: $("#r-email").val(),
+        //         password: $("#r-password").val(),
+        //         name: $("#r-name").val(),
+        //         role: $("#r-role").val(),
+        //     };
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/client/register", // Đường dẫn URL phải đúng theo route bạn định nghĩa
+        //         data: formData,
+        //         success: function (response) {
+        //             if (response.success) {
+        //                 saveUserToLocalStorage(response.user);
+        //                 window.location.href = "/"; // Chuyển hướng đến trang chủ
+        //             } else {
+        //                 $("#error-message").text(response.message);
+        //             }
+        //         },
+        //         error: function (xhr) {
+        //             var errors = xhr.responseJSON.errors;
+        //             var errorMessage = "";
+        //             for (var error in errors) {
+        //                 if (errors.hasOwnProperty(error)) {
+        //                     errorMessage += errors[error] + "\n";
+        //                 }
+        //             }
+        //             $("#error-message").text(errorMessage);
+        //         },
+        //     });
+        // });
     });
 
     function deleteUser () {

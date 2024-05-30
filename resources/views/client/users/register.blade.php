@@ -16,33 +16,35 @@
                             <div class="card-body p-5">
                                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                                <form action="" method="post">
+                                <form action="{{ route('client.register.store') }}" method="post" id="register-form">
 
                                     <div data-mdb-input-init class="form-outline mb-4">
-                                        <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" />
+                                        <input type="text" name="name" id="r-name" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example1cg">Your Name</label>
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline mb-4">
-                                        <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                        <input type="email" name="email" id="r-email" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example3cg">Your Email</label>
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline mb-4">
-                                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" />
+                                        <input type="password" name="password" id="r-password" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example4cg">Password</label>
                                     </div>
 
                                     <div data-mdb-input-init class="form-outline mb-4" hidden>
-                                        <input type="number" name="role_id" value="1" id="form3Example4cdg" class="form-control form-control-lg" />
+                                        <input type="number" name="role_id" value="1" id="r-role_id" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example4cdg">Roles</label>
                                     </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                                        <label class="form-check-label" for="form2Example3g">
-                                            I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                                        </label>
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" name="remember" id="agreeTerms" value="agree">
+                                            <label for="agreeTerms">
+                                                I agree to the <a href="#">terms</a>
+                                            </label>
+                                        </div>
                                     </div>
 
                                     <div class="d-flex justify-content-center">

@@ -20,9 +20,10 @@ class ListProductCartComposer
             // Get the user ID
             $user_id = $user->id;
             $lists = Order::where('user_id', $user_id)->with('product')->get();
-            // dd($lists->toArray());
+
             $view->with('lists', $lists);
+        } else {
+            $view->with('lists', []);
         }
-        $view->with('lists', []);
     }
 }

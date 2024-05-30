@@ -15,7 +15,6 @@ class AmountProductComposer
     {
         // Get the authenticated user
         $user = auth()->user();
-
         // Check if user is authenticated
         if ($user) {
             // Get the user ID
@@ -30,7 +29,8 @@ class AmountProductComposer
 
             // Pass the amounts to the view
             $view->with('amounts', $sum);
+        } else {
+            $view->with('amounts', 0);
         }
-        $view->with('amounts', 0);
     }
 }

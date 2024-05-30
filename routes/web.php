@@ -95,7 +95,7 @@ Route::prefix('/')->group(function () {
         Route::post('login', [ClientLoginController::class, 'store'])->name('client.login.store');
 
         Route::get('register', [ClientRegisterController::class, 'index']);
-        Route::post('register', [ClientRegisterController::class, 'store']);
+        Route::post('register', [ClientRegisterController::class, 'store'])->name('client.register.store');
 
         Route::post('logout', [ClientLoginController::class, 'logout'])->name('client.logout');
     });

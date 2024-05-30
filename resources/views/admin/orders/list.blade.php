@@ -10,6 +10,7 @@
             <th>Size</th>
             <th>Color</th>
             <th>Price</th>
+            <th>Ghi chú</th>
             <th>Updated_at</th>
             <th>Action</th>
         </tr>
@@ -25,6 +26,7 @@
             <td>{{ $order['size'] }}</td>
             <td>{{ $order['color'] }}</td>
             <td>{{ $order->product->price }}</td>
+            <th class="text-red">{{ $order->note}} </th>
             <td>{{ $order['updated_at'] }}</td>
             <td class="d-flex">
                 <a href="/admin/orders/edit/{{ $order->id}}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>
