@@ -4,7 +4,7 @@
         <form action="{{ route('orders.store') }}" method="post">
             <div class="container">
                 <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-                    <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                    <button type="button" class="how-pos3 hov3 trans-04 js-hide-modal1">
                         <img src="/template/client/images/icons/icon-close.png" alt="btn-img">
                     </button>
 

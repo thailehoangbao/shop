@@ -36,4 +36,17 @@ class OrderAdminServices {
         }
         return true;
     }
+
+    public function delete($id)
+    {
+        try {
+            $order = Order::find($id);
+            $order->delete();
+            FacadesSession::flash('success', 'order deleted successfully');
+            return true;
+        } catch (\Exception $err) {
+            FacadesSession::flash('error', $err->getMessage());
+            return false;
+        }
+    }
 }

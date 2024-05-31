@@ -68,7 +68,7 @@
                             @csrf
                         </form>
                         @else
-                        <a href="{{ route('client.login') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11">Đăng Nhập</a>
+                        <a href="{{ route('login') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11">Đăng Nhập</a>
                         @endif
                     </div>
 

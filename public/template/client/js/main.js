@@ -35,7 +35,7 @@
                         saveUserToLocalStorage(newUser);
                         window.location.href = response.redirect_url; // Chuyển hướng đến trang chủ
                         // Thêm đoạn script để reload lại trang
-                        
+
                         window.addEventListener("load", function () {
                             location.reload();
                         });
@@ -443,4 +443,5 @@
             window.location.href = "/client/login";
         }
     });
+
 })(jQuery);

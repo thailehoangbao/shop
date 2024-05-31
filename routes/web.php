@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Client\CategoryController;
+use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('users/login', [LoginController::class, 'index'])->name('login');
+    Route::get('users/login', [LoginController::class, 'index'])->name('admin.login');
     Route::post('users/login/store', [LoginController::class, 'store']);
     Route::get('users/register', [RegisterController::class, 'index'])->name('register');
     Route::post('users/register/store', [RegisterController::class, 'store']);
@@ -91,7 +92,7 @@ Route::middleware(['auth'])->group(function () {
 Route::prefix('/')->group(function () {
     Route::get('/', [ClientMainController::class, 'index'])->name('home');
     Route::prefix('client')->group(function () {
-        Route::get('login', [ClientLoginController::class, 'index'])->name('client.login');
+        Route::get('login', [ClientLoginController::class, 'index'])->name('login');
         Route::post('login', [ClientLoginController::class, 'store'])->name('client.login.store');
 
         Route::get('register', [ClientRegisterController::class, 'index']);
@@ -105,6 +106,10 @@ Route::prefix('/')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::post('orders', [OrderController::class, 'store'])->name('orders.store');
+
+        
+        Route::get('detail/{product}', [DetailController::class, 'store'])->name('product.detail');
+        Route::post('detail/orders', [DetailController::class, 'order'])->name('product.detail.orders');
     });
 });
 

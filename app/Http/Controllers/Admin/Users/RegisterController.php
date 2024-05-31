@@ -40,6 +40,6 @@ class RegisterController extends Controller
 
         User::create($data);
 
-        return redirect()->route('login')->with('success','Đăng ký tài khoản thành công');
+        return redirect()->route('admin.login')->with('success','Đăng ký tài khoản thành công');
     }
 }
