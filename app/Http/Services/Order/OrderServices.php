@@ -21,4 +21,15 @@ class OrderServices {
             return $e->getMessage();
         }
     }
+
+    public function delete ($id) {
+        try {
+            $order = Order::findOrFail($id);
+            $order->delete();
+            return true;
+        } catch (\Exception $e) {
+            //throw $th;
+            return $e->getMessage();
+        }
+    }
 }

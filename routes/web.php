@@ -11,11 +11,14 @@ use App\Http\Controllers\Client\CategoryController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
+use App\Http\Controllers\Client\PaymentController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
 use App\Http\Controllers\Client\Users\LogoutController;
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('email',[EmailController::class,'sendEmail']);
 
 Route::prefix('admin')->group(function () {
     Route::get('users/login', [LoginController::class, 'index'])->name('admin.login');
@@ -106,10 +109,13 @@ Route::prefix('/')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::post('orders', [OrderController::class, 'store'])->name('orders.store');
+        Route::delete('orders/destroy', [OrderController::class, 'destroy']);
 
-        
         Route::get('detail/{product}', [DetailController::class, 'store'])->name('product.detail');
         Route::post('detail/orders', [DetailController::class, 'order'])->name('product.detail.orders');
+
+        Route::post('payment',[PaymentController::class,'index'])->name('payment.index');
+        Route::post('payment/proceed',[PaymentController::class,'store'])->name('payment.store');
     });
 });
 

@@ -23,4 +23,12 @@ class OrderController extends Controller
             return redirect()->back();
         }
     }
+
+    public function destroy( Request $request )
+    {
+        $result = $this->order->delete($request->id);
+        if($result === true) {
+            return redirect()->back();
+        }
+    }
 }
