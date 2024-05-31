@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Payment\CreateFormRequest;
+use App\Http\Services\Payment\PaymentServices;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
+    protected $paymentServices;
+
+    public function __construct(PaymentServices $paymentServices) {
+        $this->paymentServices = $paymentServices;
+    }
+
     public function index(Request $request)
     {
         // Decode the JSON encoded lists data
@@ -25,12 +33,10 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        
-        $data = $request->all();
-        $data['list'] = json_encode($data['list']);
-        $data['status'] = 0;
-        $data['token'] = md5(time());
-        Order::create($data);
-        return redirect()->route('client.home');
+        $result = $this->paymentServices->create($request);
+        if ($result) {
+            return redirect()->route('home');
+        }
+        return redirect()->back();
     }
 }

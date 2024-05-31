@@ -1,5 +1,5 @@
 <!-- Shoping Cart -->
-<form class="bg0 p-t-75 p-b-85" action="{{ route('payment.store') }}" method="POST">
+<form class="bg0 p-t-75 p-b-85" action="{{route('payment.store')}}" method="post">
     @csrf
     <div class="container">
         <div class="row">
@@ -26,7 +26,7 @@
                                 </td>
                                 <td class="column-2 text-center" style="width: 300px;">{{ $item->product->name }}</td>
                                 <td class="column-3 text-center">{{$item->product->price}}</td>
-                                <td class="column-4 text-center" >
+                                <td class="column-4 text-center">
                                     {{ $item->amount }}
                                 </td>
                                 <td class="column-5" style="width: 50px!important;">{{$item->size}}</td>
@@ -68,7 +68,7 @@
 
                         <div class="size-209">
                             <span class="mtext-110 cl2">
-                            {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
+                                {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
                             </span>
                         </div>
                     </div>
@@ -136,13 +136,23 @@
                             </p>
 
                             <p class="stext-111 cl6 p-t-2">
-                                <label for="phone" class="cl10">Phone: </label> <input type="number" placeholder="Enter your fone" name="phone">
+                                <label for="phone" class="cl10">Phone: </label>
+                                <input type="text" placeholder="Enter your phone" name="phone" value="{{ old('phone') }}">
+                                @error('phone')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </p>
+
 
 
                             <p class="stext-111 cl6 p-t-2">
-                            <label for="address" class="cl10">Address: </label><input type="text" placeholder="Enter your address" name="address">
+                                <label for="address" class="cl10">Address: </label>
+                                <input type="text" placeholder="Enter your address" name="address" value="{{ old('address') }}">
+                                @error('address')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </p>
+
                         </div>
                     </div>
 
@@ -155,18 +165,19 @@
 
                         <div class="size-209 p-t-1">
                             <span class="mtext-110 cl2">
-                            {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
+                                {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
                             </span>
                         </div>
                     </div>
 
 
-                        <input type="hidden" name="lists" value="{{ json_encode($lists) }}">
-                        <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                            Proceed to Checkout
-                        </button>
+                    <input type="hidden" name="lists" value="{{ json_encode($lists) }}">
+                    <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        Proceed to Checkout
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
 </form>

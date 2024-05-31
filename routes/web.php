@@ -114,8 +114,8 @@ Route::prefix('/')->group(function () {
         Route::get('detail/{product}', [DetailController::class, 'store'])->name('product.detail');
         Route::post('detail/orders', [DetailController::class, 'order'])->name('product.detail.orders');
 
-        Route::post('payment',[PaymentController::class,'index'])->name('payment.index');
-        Route::post('payment/proceed',[PaymentController::class,'store'])->name('payment.store');
+        Route::post('/show-payment',[PaymentController::class,'index'])->name('payment.index');
+        Route::post('/payment',[PaymentController::class,'store'])->name('payment.store');
     });
 });
 
