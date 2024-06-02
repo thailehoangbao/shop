@@ -1,5 +1,5 @@
 <!-- Shoping Cart -->
-<form class="bg0 p-t-75 p-b-85" action="{{route('payment.store')}}" method="post">
+<form class="bg0 p-t-75 p-b-85" action="" method="post">
     @csrf
     <div class="container">
         <div class="row">
@@ -139,7 +139,7 @@
                                 <label for="phone" class="cl10">Phone: </label>
                                 <input type="text" placeholder="Enter your phone" name="phone" value="{{ old('phone') }}">
                                 @error('phone')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
                                 @enderror
                             </p>
 
@@ -149,7 +149,7 @@
                                 <label for="address" class="cl10">Address: </label>
                                 <input type="text" placeholder="Enter your address" name="address" value="{{ old('address') }}">
                                 @error('address')
-                                <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
                                 @enderror
                             </p>
 

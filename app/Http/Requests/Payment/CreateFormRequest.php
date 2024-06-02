@@ -23,7 +23,7 @@ class CreateFormRequest extends FormRequest
     {
         return [
             'address' => 'required|string',
-            'phone' => 'required|string'
+            'phone' => 'required|string|min:10|max:11|regex:/^0[0-9]{9,10}$/'
         ];
     }
 
@@ -31,6 +31,7 @@ class CreateFormRequest extends FormRequest
         return [
             'address.required' => 'Vui lòng nhập địa chỉ',
             'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.min' => 'Số điện thoại không hợp lệ',
         ];
     }
 }

@@ -108,16 +108,20 @@ Route::prefix('/')->group(function () {
     Route::get('parentCategory/{menu}', [CategoryController::class, 'parentCategory']);
 
     Route::middleware(['auth'])->group(function () {
+        Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
         Route::post('orders', [OrderController::class, 'store'])->name('orders.store');
+        Route::get('orders/{id}',[OrderController::class,'detail'])->name('orders.detail');
         Route::delete('orders/destroy', [OrderController::class, 'destroy']);
 
         Route::get('detail/{product}', [DetailController::class, 'store'])->name('product.detail');
         Route::post('detail/orders', [DetailController::class, 'order'])->name('product.detail.orders');
 
-        Route::post('/show-payment',[PaymentController::class,'index'])->name('payment.index');
+        Route::get('/payment',[PaymentController::class,'index'])->name('payment.index');
         Route::post('/payment',[PaymentController::class,'store'])->name('payment.store');
     });
 });
+
+Route::get('/except-order/{payment}/{token}',[EmailController::class,'except'])->name('except.order');
 
 
 

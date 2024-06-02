@@ -29,6 +29,6 @@ class ViewServiceProvider extends ServiceProvider
         Facades\View::composer(['client.slider'],SliderComposer::class);
         Facades\View::composer(['client.product'],ProductComposer::class);
         Facades\View::composer('client.header',AmountProductComposer::class);
-        Facades\View::composer('client.cart',ListProductCartComposer::class);
+        Facades\View::composer(['client.cart','email.formemail'],ListProductCartComposer::class);
     }
 }

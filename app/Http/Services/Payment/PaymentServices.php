@@ -2,13 +2,29 @@
 
 namespace App\Http\Services\Payment;
 
-
+use App\Models\Order;
 use App\Models\Payment;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class PaymentServices
 {
+    public function getOrder($request)
+    {
+        // Get the authenticated user
+        $user = auth()->user();
+        // Check if user is authenticated
+        if ($user) {
+            // Get the user ID
+            $user_id = $user->id;
+            $lists = Order::where('user_id', $user_id)->with('product')->get();
+
+            return $lists;
+        } else {
+            return [];
+        }
+    }
+
     public function create($request)
     {
         try {
@@ -33,7 +49,7 @@ class PaymentServices
             $payment->list = $request->lists;
             $payment->status = 0;
             $payment->save();
-            return true;
+            return $payment;
         } catch (JWTException $e) {
             return response()->json(['error' => 'Could not create token'], 500);
         }
