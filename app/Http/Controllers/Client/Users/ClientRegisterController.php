@@ -64,7 +64,8 @@ class ClientRegisterController extends Controller
         // Log the user in after registration
         // Auth::login($user);
         Mail::send('email.register', ['user' => $user,'token' => $token], function ($message) use ($user) {
-            $message->to($user->email, $user->name)->subject('Xác nhận tài khoản');
+            $message->subject('Shopping - Xác nhận tài khoản');
+            $message->to($user->email, $user->name);
         });
         // Redirect to home with success message
         return redirect()->route('home')->with('success', 'Registration and login successful!');

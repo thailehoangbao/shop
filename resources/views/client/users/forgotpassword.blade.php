@@ -20,7 +20,7 @@
 
                     <div class="px-5 ms-xl-4">
                         <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-                        <span class="h1 fw-bold mb-0">Wellcome To Login</span>
+                        <span class="h1 fw-bold mb-0">Wellcome to forgot password</span>
                     </div>
                     @if(session('message'))
                     <div class="alert alert-danger">{{ session('message') }}</div>
@@ -28,34 +28,22 @@
 
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form style="width: 23rem;" action="{{ route('client.login.store') }}" method="post" >
-                        <!-- id="login-form" -->
+                        <form style="width: 23rem;" action="" method="post" >
 
-                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Your email forgot?</h3>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="email" name="email" id="l-email" class="form-control form-control-lg" name="email" />
-                                <label class="form-label" for="email">Email address</label>
+                                <input type="email" name="email" id="f-g-email" class="form-control form-control-lg" />
+                                <label class="form-label" for="email" style="font-size: small;">Enter your email address</label>
                                 @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
 
                             </div>
 
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" name="password" id="l-password" class="form-control form-control-lg" name="password"/>
-                                <label class="form-label" for="password">Password</label>
-                                @error('password')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
                             <div class="pt-1 mb-4">
-                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="submit" >Login</button>
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="submit" >Send verify to your email!</button>
                             </div>
-
-                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="/client/forgot-password">Forgot password?</a></p>
-                            <p>Don't have an account? <a href="/client/register" class="link-info">Register here</a></p>
                             @csrf
                         </form>
 

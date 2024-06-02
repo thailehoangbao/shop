@@ -18,7 +18,7 @@ use App\Http\Controllers\Client\Users\LogoutController;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('email',[EmailController::class,'sendEmail']);
+Route::get('email', [EmailController::class, 'sendEmail']);
 
 Route::prefix('admin')->group(function () {
     Route::get('users/login', [LoginController::class, 'index'])->name('admin.login');
@@ -100,6 +100,10 @@ Route::prefix('/')->group(function () {
 
         Route::get('register', [ClientRegisterController::class, 'index']);
         Route::post('register', [ClientRegisterController::class, 'store'])->name('client.register.store');
+        Route::get('forgot-password', [ClientLoginController::class, 'forgotPassword'])->name('forgot.password');
+        Route::post('forgot-password', [ClientLoginController::class, 'sendEmailForgotPassword']);
+        Route::get('reset-password/{id}/{token}', [ClientLoginController::class, 'resetPassword'])->name('reset.password');
+        Route::post('reset-password/{id}/{token}', [ClientLoginController::class, 'updatePassword']);
 
         Route::post('logout', [ClientLoginController::class, 'logout'])->name('client.logout');
     });
@@ -107,22 +111,22 @@ Route::prefix('/')->group(function () {
     Route::get('category/{menu}', [CategoryController::class, 'index']);
     Route::get('parentCategory/{menu}', [CategoryController::class, 'parentCategory']);
 
+    Route::get('except-order/{payment}/{token}', [EmailController::class, 'except'])->name('except.order');
+    Route::get('confirm-register/{token}', [EmailController::class, 'confirmRegister'])->name('confirm.register');
+
     Route::middleware(['auth'])->group(function () {
         Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
         Route::post('orders', [OrderController::class, 'store'])->name('orders.store');
-        Route::get('orders/{id}',[OrderController::class,'detail'])->name('orders.detail');
+        Route::get('orders/{id}', [OrderController::class, 'detail'])->name('orders.detail');
         Route::delete('orders/destroy', [OrderController::class, 'destroy']);
 
         Route::get('detail/{product}', [DetailController::class, 'store'])->name('product.detail');
         Route::post('detail/orders', [DetailController::class, 'order'])->name('product.detail.orders');
 
-        Route::get('/payment',[PaymentController::class,'index'])->name('payment.index');
-        Route::post('/payment',[PaymentController::class,'store'])->name('payment.store');
+        Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+        Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     });
 });
 
-Route::get('/except-order/{payment}/{token}',[EmailController::class,'except'])->name('except.order');
-Route::get('/confirm-register/{token}',[EmailController::class,'confirmRegister'])->name('confirm.register');
 
 
-// <!-- {!! App\Helpers\Helper::menu($menus) !!} -->
