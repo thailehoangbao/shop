@@ -7,6 +7,13 @@
 
 <body>
     <section class="vh-100">
+        <div class="container">
+            @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            @endif
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-black">
@@ -21,13 +28,14 @@
 
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form style="width: 23rem;" action="{{ route('client.login.store') }}" method="post" id="login-form">
+                        <form style="width: 23rem;" action="{{ route('client.login.store') }}" method="post" >
+                        <!-- id="login-form" -->
 
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="email" name="email" id="email" class="form-control form-control-lg" name="email" />
-                                <label class="form-label" for="form2Example18">Email address</label>
+                                <input type="email" name="email" id="l-email" class="form-control form-control-lg" name="email" />
+                                <label class="form-label" for="email">Email address</label>
                                 @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -35,8 +43,8 @@
                             </div>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" name="password" id="password" class="form-control form-control-lg" name="password"/>
-                                <label class="form-label" for="form2Example28">Password</label>
+                                <input type="password" name="password" id="l-password" class="form-control form-control-lg" name="password"/>
+                                <label class="form-label" for="password">Password</label>
                                 @error('password')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -122,7 +122,7 @@ Route::prefix('/')->group(function () {
 });
 
 Route::get('/except-order/{payment}/{token}',[EmailController::class,'except'])->name('except.order');
-
+Route::get('/confirm-register/{token}',[EmailController::class,'confirmRegister'])->name('confirm.register');
 
 
 // <!-- {!! App\Helpers\Helper::menu($menus) !!} -->

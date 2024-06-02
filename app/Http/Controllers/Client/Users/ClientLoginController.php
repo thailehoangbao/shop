@@ -27,28 +27,31 @@ class ClientLoginController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-
         if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Thông tin đăng nhập không chính xác'
-            ], 401);
+            return redirect()->back()->with('error', 'Thông tin đăng nhập không chính xác');
         }
 
-        $user = Auth::attempt(
-            [
-                'email' => $request->input('email'),
-                'password' => $request->input('password')
-            ],
-            $request->input('remember')
-        );
-        return response()->json([
-            'success' => true,
-            'message' => 'Đăng nhập thành công',
-            'user' => $user,
-            'token' => $token,
-            'redirect_url' => route('home') // Route 'home'
-        ]);
+        $user = Auth::user();
+        if (Auth::attempt($credentials)) {
+            if ($user->status == 1) {
+                // Authentication passed, redirect to home, user is logged in
+                return redirect()->route('home')->with('success', 'Login successful!');
+            } else if ($user->status == 0) {
+                return redirect()->back()->with('error', 'Tài khoản của bạn chưa được kích hoạt! Vào email để xác nhận tài khoản!');
+            } else if ($user->status == 2) {
+                return redirect()->back()->with('error', 'Tài khoản của bạn đã bị khóa trong 1h vì nhập sai nhiều lần!');
+            }
+        } else {
+            // Authentication failed, redirect back with error
+            return redirect()->back()->with('error', 'Login failed!');
+        }
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'Đăng nhập thành công',
+        //     'user' => $user,
+        //     'token' => $token,
+        //     'redirect_url' => route('home') // Route 'home'
+        // ]);
     }
 
     public function logout()

@@ -30,6 +30,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Hình Ảnh</th>
                 <th>Size</th>
                 <th>Color</th>
                 <th>Amount</th>
@@ -40,6 +41,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->product->name }}</td>
+                <td><img src="{{ url('storage/' . $order->product->thumb) }}" style="width: 50px; height: 50px;"></td>
                 <td>{{ $order->size }}</td>
                 <td>{{ $order->color }}</td>
                 <td>{{ $order->amount }}</td>

@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ClientRegisterController extends Controller
 {
@@ -35,25 +37,35 @@ class ClientRegisterController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed, redirect to home
-            return redirect()->route('home')->with('success', 'Login successful!');
+            if($user->status == 1) {
+            // Authentication passed, redirect to home, user is logged in
+                return redirect()->route('home')->with('success', 'Login successful!');
+            }  else if ($user->status == 0) {
+                return redirect()->back()->with('error', 'Tài khoản của bạn chưa được kích hoạt!');
+            }
         } else {
             // Authentication failed, redirect back with error
             return redirect()->back()->with('error', 'Login failed!');
         }
     } else {
+
         // User does not exist, create a new user
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => $request->role_id,
-            'remember_token' => $request->remember
+            'remember_token' => $request->remember,
+            'status' => 0
         ]);
 
-        // Log the user in after registration
-        Auth::login($user);
+        $token = JWTAuth::fromUser($user);
 
+        // Log the user in after registration
+        // Auth::login($user);
+        Mail::send('email.register', ['user' => $user,'token' => $token], function ($message) use ($user) {
+            $message->to($user->email, $user->name)->subject('Xác nhận tài khoản');
+        });
         // Redirect to home with success message
         return redirect()->route('home')->with('success', 'Registration and login successful!');
     }

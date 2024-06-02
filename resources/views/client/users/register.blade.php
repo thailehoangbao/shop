@@ -6,8 +6,21 @@
 </head>
 
 <body>
-
     <section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="container">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+        </div>
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -20,22 +33,45 @@
 
                                     <div data-mdb-input-init class="form-outline mb-4">
                                         <input type="text" name="name" id="r-name" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example1cg">Your Name</label>
+                                        <label class="form-label" for="name">Your Name</label>
                                     </div>
+                                    @if ($errors->has('name'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $errors->first('name') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
 
                                     <div data-mdb-input-init class="form-outline mb-4">
                                         <input type="email" name="email" id="r-email" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                                        <label class="form-label" for="email">Your Email</label>
                                     </div>
+                                    @if ($errors->has('email'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $errors->first('email') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
 
                                     <div data-mdb-input-init class="form-outline mb-4">
                                         <input type="password" name="password" id="r-password" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example4cg">Password</label>
+                                        <label class="form-label" for="password">Password</label>
                                     </div>
+                                    @if ($errors->has('password'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $errors->first('password') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
 
                                     <div data-mdb-input-init class="form-outline mb-4" hidden>
                                         <input type="number" name="role_id" value="1" id="r-role_id" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example4cdg">Roles</label>
+                                        <label class="form-label" for="role">Roles</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4" hidden>
+                                        <input type="number" name="status" value="0" id="r-status" class="form-control form-control-lg" />
+                                        <label class="form-label" for="status">Status</label>
                                     </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">

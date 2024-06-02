@@ -68,4 +68,30 @@ class EmailController extends Controller
             ], 400);
         }
     }
+
+    public function confirmRegister($token)
+    {
+        try {
+            // Đặt token để sử dụng
+            JWTAuth::setToken($token);
+
+            // Kiểm tra token có hợp lệ hay không
+            JWTAuth::parseToken()->authenticate();
+
+            $user = JWTAuth::toUser($token);
+            $user->status = 1;
+            $user->save();
+
+            return redirect()->route('home')->with('success', 'Kích hoạt tài khoản thành công');
+        } catch (TokenExpiredException $e) {
+            // Token đã hết hạn
+            return redirect()->back()->with('error', 'Token đã hết hạn');
+        } catch (TokenInvalidException $e) {
+            // Token không hợp lệ
+            return redirect()->back()->with('error', 'Token không hợp lệ');
+        } catch (JWTException $e) {
+            // Lỗi khi xử lý token (token có thể bị thiếu)
+            return redirect()->back()->with('error', 'Token không tồn tại');
+        }
+    }
 }
