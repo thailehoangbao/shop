@@ -6,7 +6,7 @@
     <div class="container">
         @include('client.category.navbar')
 
-
+        @include('client.category.cart')
         @yield('contentCategory')
 
 

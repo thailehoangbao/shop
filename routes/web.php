@@ -12,6 +12,7 @@ use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\PaymentController;
+use App\Http\Controllers\Client\Profile\ProfileController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
 use App\Http\Controllers\Client\Users\LogoutController;
@@ -125,6 +126,11 @@ Route::prefix('/')->group(function () {
 
         Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
         Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('info', [ProfileController::class, 'index'])->name('profile.index');
+        Route::post('info', [ProfileController::class, 'update'])->name('profile.update');
     });
 });
 

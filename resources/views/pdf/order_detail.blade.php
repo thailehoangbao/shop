@@ -41,7 +41,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->product->name }}</td>
-                <td><img src="{{ url('storage/' . $order->product->thumb) }}" style="width: 50px; height: 50px;"></td>
+                <td><img src="{{ assert('public/uploads/' . $order->product->thumb) }}" width="60"></td>
                 <td>{{ $order->size }}</td>
                 <td>{{ $order->color }}</td>
                 <td>{{ $order->amount }}</td>

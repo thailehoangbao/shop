@@ -63,10 +63,15 @@
                     <div id="auth-link">
                         <!-- Blade kiểm tra xem người dùng đã đăng nhập hay chưa -->
                         @if (Auth::check())
-                        <a id="logout-link" href="{{ route('client.logout') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng Xuất</a>
-                        <form id="logout-form" action="{{ route('client.logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                        <div>
+                            <a id="logout-link" href="{{ route('client.logout') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng Xuất</a>
+                            <form id="logout-form" action="{{ route('client.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <button>
+                                <a href="/profile/info"><i class="fa-solid fa-user"></i></a>
+                            </button>
+                        </div>
                         @else
                         <a href="{{ route('login') }}" class="cl2 hov-cl1 trans-04 p-l-22 p-r-11">Đăng Nhập</a>
                         @endif
