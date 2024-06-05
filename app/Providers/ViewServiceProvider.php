@@ -37,7 +37,7 @@ class ViewServiceProvider extends ServiceProvider
 
         #Blog
         Facades\View::composer(['client.blog.index','client.blog.sidebarright'],PostsComposer::class);
-        Facades\View::composer(['client.blog.comment'],CommentsComposer::class);
+        Facades\View::composer(['client.blog.comment','client.blog.index'],CommentsComposer::class);
         Facades\View::composer(['client.blog.sidebarright'],CategoriesPostComposer::class);
     }
 }

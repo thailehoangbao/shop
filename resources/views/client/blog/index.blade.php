@@ -6,7 +6,7 @@
         <hr class="tm-hr-primary">
         <a href="post/{{$post->id}}" class="effect-lily tm-post-link tm-pt-60">
             <div class="tm-post-link-inner">
-                <img src="{{asset('storage/uploads/'.$post->thumb_1)}}" alt="{{$post->title}}" class="img-fluid">
+                <img src="{{asset('storage/uploads/'.$post->thumb_1)}}" alt="{{$post->title}}" class="img-fluid" style="height: 300px;">
             </div>
             <span class="position-absolute tm-new-badge">New</span>
             <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{$post->title}}</h2>
@@ -24,8 +24,10 @@
         </div>
         <hr>
         <div class="d-flex justify-content-between">
-            <span>36 comments</span>
-            <span>by Admin Nat</span>
+            <span>
+                {{ App\Helpers\Helpers::sumComments($comments,$post) }} Comments
+            </span>
+            <span>write by {{$post->user->name}}</span>
         </div>
     </article>
     @endforeach

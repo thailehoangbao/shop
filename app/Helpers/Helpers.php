@@ -57,7 +57,7 @@ class Helpers
         }
     }
 
-    public static function shorten($text, $maxWords=6)
+    public static function shorten($text, $maxWords = 6)
     {
         $words = explode(' ', $text);
         if (count($words) > $maxWords) {
@@ -77,7 +77,7 @@ class Helpers
 
     public static function deleteFile($filename)
     {
-        if($filename == null) return false;
+        if ($filename == null) return false;
 
         $oldFilePath = 'uploads/' . $filename;
 
@@ -85,6 +85,17 @@ class Helpers
         if (Storage::disk('public')->exists($oldFilePath)) {
             Storage::disk('public')->delete($oldFilePath);
         }
+    }
+
+    public static function sumComments($comments,$post)
+    {
+        $sum = 0;
+        foreach ($comments as $comment) {
+            if ($comment->post_id == $post->id) {
+                $sum++;
+            }
+        }
+        return $sum;
     }
 }
 

@@ -115,8 +115,6 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('edit/{post}', [PostController::class, 'edit'])->name('blog.post.edit');
                 Route::post('edit/{post}', [PostController::class, 'update']);
             });
-
-
         });
     });
 });
@@ -165,16 +163,14 @@ Route::prefix('/')->group(function () {
     });
 
     Route::prefix('blog')->group(function () {
-        Route::get('info',[ClientBlogController::class,'index'])->name('blog.index');
-        Route::get('post',[ClientBlogController::class,'post']);
-        Route::get('post/{post}',[ClientBlogController::class,'postDetail']);
-        Route::get('about',[ClientBlogController::class,'about']);
-        Route::get('contact',[ClientBlogController::class,'contact']);
+        Route::get('info', [ClientBlogController::class, 'index'])->name('blog.index');
+        Route::get('post', [ClientBlogController::class, 'post'])->name('blog.post');
+        Route::post('post', [ClientBlogController::class, 'userCreatePost']);
+        Route::get('post/{post}', [ClientBlogController::class, 'postDetail']);
+        Route::get('about', [ClientBlogController::class, 'about'])->name('blog.about');
+        Route::get('contact', [ClientBlogController::class, 'contact'])->name('blog.contact');
 
 
-        Route::get('comment',[ClientBlogController::class,'comment'])->name('blog.comment');
+        Route::get('comment', [ClientBlogController::class, 'comment'])->name('blog.comment');
     });
 });
-
-
-

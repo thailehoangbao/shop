@@ -13,7 +13,7 @@ class PostsComposer
 
     public function compose(View $view)
     {
-        $posts = Post::where('status',1)->with('category_post')->orderByDesc('id')->get();
+        $posts = Post::where('status',1)->with(['category_post','user'])->orderByDesc('id')->get();
         $view->with('posts', $posts);
     }
 }

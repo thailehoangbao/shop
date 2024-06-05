@@ -4,7 +4,8 @@
                 <hr class="tm-hr-primary tm-mb-45">
                 @foreach($comments as $comment)
                 @if($comment->post_id == $post->id)
-                <div class="tm-comment" style="background-color: #f3f0f0;border-radius: 8px;padding: 8px; height: fit-content;margin-bottom: 18px;">
+                @if(Auth::user() && Auth::user()->id == $comment->user_id)
+                <div class="tm-comment" style="background-color: #fbe7e7;border-radius: 8px;padding: 8px 24px 0px 0; height: fit-content;margin-bottom: 18px;width: fit-content;margin-left: 250px;">
                     <div style="width: 130px;">
                         <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 2px;">
                             @if($comment->user->avatar == null)
@@ -20,7 +21,7 @@
                         <div class="d-flex justify-content-between">
                             <!-- <a href="#" class="tm-color-primary">REPLY</a> -->
                             <div>
-                                <span class="tm-color-primary " style="font-size: 12px;">Time: {{$comment->created_at}}</span>
+                                <span class="tm-color-primary " style="font-size: 12px;">Time: {{ \Carbon\Carbon::parse($comment->created_at)->format('d-m-Y H:i:s') }}</span>
                             </div>
                         </div>
                         <p style="color: black; font-size: 15px;">
@@ -28,6 +29,32 @@
                         </p>
                     </div>
                 </div>
+                @else
+                <div class="tm-comment" style="background-color: #f3f0f0;border-radius: 8px;padding: 8px 24px 0px 0; height: fit-content;margin-bottom: 18px;width: fit-content;">
+                    <div style="width: 130px;">
+                        <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 2px;">
+                            @if($comment->user->avatar == null)
+                            <img width="40" height="40" src="{{ asset('storage/uploads/avatardefault.jpg') }}" alt="User profile picture" style="border-radius: 50%;">
+                            @else
+                            <img width="40" height="40" src="{{ asset('storage/uploads/'.$comment->user->avatar) }}" alt="{{$comment->user->name}}" style="border-radius: 50%;">
+
+                            @endif
+                            <p class="tm-color-primary text-center" style="font-size: 12px;margin-bottom: 0;">{{$comment->user->name}}</p>
+                        </div>
+                    </div>
+                    <div style="margin-left: 24px;">
+                        <div class="d-flex justify-content-between">
+                            <!-- <a href="#" class="tm-color-primary">REPLY</a> -->
+                            <div>
+                                <span class="tm-color-primary " style="font-size: 12px;">Time: {{ \Carbon\Carbon::parse($comment->created_at)->format('d-m-Y H:i:s') }}</span>
+                            </div>
+                        </div>
+                        <p style="color: black; font-size: 15px;">
+                            {{ $comment->content }}
+                        </p>
+                    </div>
+                </div>
+                @endif
                 @endif
                 @endforeach
 

@@ -6,7 +6,7 @@ use App\Helpers\Helpers;
 use App\Models\CategoryPost;
 use App\Models\Post;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+
 
 class PostServices
 {
@@ -17,6 +17,7 @@ class PostServices
 
     public function store($request)
     {
+        $user = auth()->user();
         $thumb_1 = Helpers::handleFile($request, 'thumb_1');
         $thumb_2 = Helpers::handleFile($request, 'thumb_2');
         $thumb_3 = Helpers::handleFile($request, 'thumb_3');
@@ -36,6 +37,7 @@ class PostServices
             $post->thumb_1 = $thumb_1;
             $post->thumb_2 = $thumb_2;
             $post->thumb_3 = $thumb_3;
+            $post->user_id = $user->id;
             $post->save();
 
             Session::flash('success', 'Product updated successfully');

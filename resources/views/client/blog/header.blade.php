@@ -16,16 +16,16 @@
                     </a>
                 </li>
                 <li class="tm-nav-item">
-                    <a href="post" class="tm-nav-link">
+                    <a href="{{route('blog.post')}}" class="tm-nav-link">
                         <i class="fas fa-pen"></i>
                         Post
                     </a>
                 </li>
-                <li class="tm-nav-item"><a href="about" class="tm-nav-link">
+                <li class="tm-nav-item"><a href="{{route('blog.about')}}" class="tm-nav-link">
                         <i class="fas fa-users"></i>
                         About
                     </a></li>
-                <li class="tm-nav-item"><a href="contact" class="tm-nav-link">
+                <li class="tm-nav-item"><a href="{{route('blog.contact')}}" class="tm-nav-link">
                         <i class="far fa-comments"></i>
                         Contact
                     </a></li>
