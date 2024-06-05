@@ -55,6 +55,8 @@
                         </li>
                         @endif
                         @endforeach
+
+                        <li><a href="/blog/info">Blog</a></li>
                     </ul>
                 </div>
 

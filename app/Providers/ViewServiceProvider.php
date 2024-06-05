@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use App\Http\View\Composers\AmountProductComposer;
+use App\Http\View\Composers\CategoriesPostComposer;
+use App\Http\View\Composers\CommentsComposer;
 use App\Http\View\Composers\ListProductCartComposer;
 use App\Http\View\Composers\MenuComposer;
+use App\Http\View\Composers\PostsComposer;
 use App\Http\View\Composers\ProductComposer;
 use App\Http\View\Composers\SliderComposer;
 use Illuminate\Support\Facades;
@@ -30,5 +33,11 @@ class ViewServiceProvider extends ServiceProvider
         Facades\View::composer(['client.product'],ProductComposer::class);
         Facades\View::composer('client.header',AmountProductComposer::class);
         Facades\View::composer(['client.cart','email.formemail','client.detail.cart','client.category.cart'],ListProductCartComposer::class);
+
+
+        #Blog
+        Facades\View::composer(['client.blog.index','client.blog.sidebarright'],PostsComposer::class);
+        Facades\View::composer(['client.blog.comment'],CommentsComposer::class);
+        Facades\View::composer(['client.blog.sidebarright'],CategoriesPostComposer::class);
     }
 }

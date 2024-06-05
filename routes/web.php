@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\Blog\CategoryPostController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\Blog\PostController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
+use App\Http\Controllers\Client\Blog\BlogController as ClientBlogController;
 use App\Http\Controllers\Client\CategoryController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
@@ -87,6 +90,34 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{order}', [AdminOrderController::class, 'show'])->name('orders.edit');
             Route::post('edit/{order}', [AdminOrderController::class, 'update']);
         });
+
+        #blog
+        Route::prefix('blog')->group(function () {
+            Route::prefix('category')->group(function () {
+                Route::get('add', [CategoryPostController::class, 'index'])->name('blog.category.add');
+                Route::post('add', [CategoryPostController::class, 'store']);
+                Route::get('list', [CategoryPostController::class, 'list'])->name('blog.category.list');
+
+                Route::delete('destroy', [CategoryPostController::class, 'destroy']);
+
+                Route::get('edit/{category}', [CategoryPostController::class, 'edit'])->name('blog.category.edit');
+                Route::post('edit/{category}', [CategoryPostController::class, 'update']);
+            });
+
+            #post
+            Route::prefix('post')->group(function () {
+                Route::get('add', [PostController::class, 'index'])->name('blog.post.add');
+                Route::post('add', [PostController::class, 'store']);
+                Route::get('list', [PostController::class, 'list'])->name('blog.post.list');
+
+                Route::delete('destroy', [PostController::class, 'destroy']);
+
+                Route::get('edit/{post}', [PostController::class, 'edit'])->name('blog.post.edit');
+                Route::post('edit/{post}', [PostController::class, 'update']);
+            });
+
+
+        });
     });
 });
 
@@ -131,6 +162,17 @@ Route::prefix('/')->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('info', [ProfileController::class, 'index'])->name('profile.index');
         Route::post('info', [ProfileController::class, 'update'])->name('profile.update');
+    });
+
+    Route::prefix('blog')->group(function () {
+        Route::get('info',[ClientBlogController::class,'index'])->name('blog.index');
+        Route::get('post',[ClientBlogController::class,'post']);
+        Route::get('post/{post}',[ClientBlogController::class,'postDetail']);
+        Route::get('about',[ClientBlogController::class,'about']);
+        Route::get('contact',[ClientBlogController::class,'contact']);
+
+
+        Route::get('comment',[ClientBlogController::class,'comment'])->name('blog.comment');
     });
 });
 

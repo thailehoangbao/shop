@@ -2,33 +2,10 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Facades\Storage;
+
 class Helpers
 {
-    // public static function menu($menus, $parent_id = 0, $char = '')
-    // {
-    //     $html = '';
-    //     foreach ($menus as $key => $menu) {
-    //         if ($menu['parent_id'] == $parent_id) {
-    //             $html .= '
-    //             <tr>
-    //                 <td>' . $menu['id'] . '</td>
-    //                 <td>' . $char . $menu['name'] . '</td>
-    //                 <td>' . $menu['description'] . '</td>
-    //                 <td>' . $menu['content'] . '</td>
-    //                 <td>' . $menu['active'] . '</td>
-    //                 <td>' . $menu['updated_at'] . '</td>
-    //                 <td>
-    //                     <a class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></a>
-    //                     <a href="#" onclick="removeRow(' . $menu['id'] . ',\'admin/menus/destroy\')" class="btn btn-danger"> <i class="fa-solid fa-circle-xmark"></i></a>
-    //                 </td>
-    //             ';
-
-    //             $html .= self::menu($menus, $menu['id'], $char . '--');
-    //         }
-    //     }
-    //     return $html;
-    // }
-
     public static function active($active = 0): string
     {
         return $active == 0 ? '<span class="btn btn-danger btn-xs">NO</span>'
@@ -45,6 +22,70 @@ class Helpers
         return $sum;
     }
 
+    public static function handleFile($request, $thumbName)
+    {
+
+        if ($request->hasFile($thumbName)) {
+            // Store the new file
+            $file = $request->file($thumbName);
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('uploads', $fileName, 'public');
+            return $fileName;
+        } else {
+            return $request->$thumbName;
+        }
+    }
+
+    public static function handleUpdateFile($request, $filename, $nameThumb)
+    {
+
+        $oldFilePath = 'uploads/' . $filename;
+
+        // Delete the old file if it exists
+        if (Storage::disk('public')->exists($oldFilePath)) {
+            Storage::disk('public')->delete($oldFilePath);
+        }
+
+        if ($request->hasFile($nameThumb)) {
+            // Store the new file
+            $file = $request->file($nameThumb);
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('uploads', $fileName, 'public');
+            return $fileName;
+        } else {
+            return $filename;
+        }
+    }
+
+    public static function shorten($text, $maxWords=6)
+    {
+        $words = explode(' ', $text);
+        if (count($words) > $maxWords) {
+            return implode(' ', array_slice($words, 0, $maxWords)) . '...';
+        }
+        return $text;
+    }
+
+    public static function shortenHasValue($text, $maxWords)
+    {
+        $words = explode(' ', $text);
+        if (count($words) > $maxWords) {
+            return implode(' ', array_slice($words, 0, $maxWords)) . '...';
+        }
+        return $text;
+    }
+
+    public static function deleteFile($filename)
+    {
+        if($filename == null) return false;
+
+        $oldFilePath = 'uploads/' . $filename;
+
+        // Delete the old file if it exists
+        if (Storage::disk('public')->exists($oldFilePath)) {
+            Storage::disk('public')->delete($oldFilePath);
+        }
+    }
 }
 
 // Vào composer.json thêm dòng sau: "files": ["app/Helpers/Helpers.php"]

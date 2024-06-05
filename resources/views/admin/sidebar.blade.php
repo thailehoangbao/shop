@@ -126,6 +126,53 @@
                                     <p>Danh sách Order</p>
                                 </a>
                             </li>
+
+                        </ul>
+                    </li>
+
+                    <!-- Category Post -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Category Post
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('blog.category.add') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm Chủ Đề</p>
+                                </a>
+                                <a href="{{ route('blog.category.list') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách chủ đề</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Posts -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Posts
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('blog.post.add') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm Bài Viết</p>
+                                </a>
+                                <a href="{{ route('blog.post.list') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách Bài Viết</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
