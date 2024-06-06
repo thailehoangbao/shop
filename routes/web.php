@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\Blog\PostController;
+use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
@@ -18,7 +19,6 @@ use App\Http\Controllers\Client\PaymentController;
 use App\Http\Controllers\Client\Profile\ProfileController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
-use App\Http\Controllers\Client\Users\LogoutController;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -81,14 +81,22 @@ Route::middleware(['auth'])->group(function () {
 
         #orders
         Route::prefix('orders')->group(function () {
-            // Route::get('add', [AdminOrderController::class, 'create'])->name('orders.add');
-            // Route::post('add', [AdminOrderController::class, 'store']);
             Route::get('list', [AdminOrderController::class, 'index'])->name('orders.list');
 
             Route::delete('destroy', [AdminOrderController::class, 'destroy']);
 
             Route::get('edit/{order}', [AdminOrderController::class, 'show'])->name('orders.edit');
             Route::post('edit/{order}', [AdminOrderController::class, 'update']);
+        });
+
+        #payment
+        Route::prefix('payments')->group(function () {
+            Route::get('list', [AdminPaymentController::class, 'index'])->name('payment.list');
+            Route::get('detail', [AdminPaymentController::class, 'detail']);
+            Route::delete('destroy', [AdminPaymentController::class, 'destroy']);
+
+            Route::get('edit/{payment}', [AdminPaymentController::class, 'show'])->name('payment.edit');
+            Route::post('edit/{payment}', [AdminPaymentController::class, 'update']);
         });
 
         #blog

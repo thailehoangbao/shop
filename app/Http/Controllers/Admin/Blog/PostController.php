@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostAdmin\CreateFormRequest;
 use App\Http\Services\Post_Admin\PostServices;
 use App\Models\Post;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as HttpRequest;
 
 class PostController extends Controller

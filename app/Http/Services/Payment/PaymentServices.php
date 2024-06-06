@@ -54,4 +54,31 @@ class PaymentServices
             return response()->json(['error' => 'Could not create token'], 500);
         }
     }
+
+    public function getAll()
+    {
+        return Payment::orderBy('created_at', 'desc')->paginate(5);
+    }
+
+    public function delete($id)
+    {
+        return Payment::destroy($id);
+    }
+
+    public function findById($id)
+    {
+        return Payment::find($id);
+    }
+
+    public function update($request,$id)
+    {
+        try {
+            $payment = Payment::find($id);
+            $payment->status = $request->status;
+            $payment->save();
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }

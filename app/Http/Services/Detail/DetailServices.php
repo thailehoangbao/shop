@@ -5,10 +5,6 @@ namespace App\Http\Services\Detail;
 
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Support\Facades\Session as FacadesSession;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class DetailServices
 {

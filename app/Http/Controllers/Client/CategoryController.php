@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\Category\CategoryService;
 use App\Models\Menu;
 
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {

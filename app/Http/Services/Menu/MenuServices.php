@@ -4,7 +4,6 @@
 namespace App\Http\Services\Menu;
 
 use App\Models\Menu;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

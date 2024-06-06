@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use PhpParser\Builder\Param;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -29,7 +27,6 @@ class EmailController extends Controller
 
     public function except(Payment $payment, $token)
     {
-
         try {
             // Đặt token để sử dụng
             JWTAuth::setToken($token);

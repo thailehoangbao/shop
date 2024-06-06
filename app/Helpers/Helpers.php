@@ -97,6 +97,19 @@ class Helpers
         }
         return $sum;
     }
+
+    public static function statusPayment ($status): string
+    {
+        if($status == 0) {
+            return '<span class="btn btn-danger btn-xs">Chưa xác nhận đơn</span>';
+        } else if($status == 1){
+            return '<span class="btn btn-primary btn-xs">Đã xác nhận đơn</span>';
+        } else if ($status == 2) {
+            return '<span class="btn btn-warning btn-xs">Đang giao hàng</span>';
+        } else {
+            return '<span class="btn btn-success btn-xs">Đã giao hàng</span>';
+        }
+    }
 }
 
 // Vào composer.json thêm dòng sau: "files": ["app/Helpers/Helpers.php"]

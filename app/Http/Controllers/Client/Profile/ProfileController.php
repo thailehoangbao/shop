@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Client\Profile;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\CreateFormRequest;
 use App\Http\Services\Profile\ProfileServices;
-use Illuminate\Http\Request;
+
 
 class ProfileController extends Controller
 {
