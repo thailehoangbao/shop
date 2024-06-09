@@ -10,3 +10,26 @@ barryvdh/laravel-dompdf
 php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
 
 composer require barryvdh/laravel-dompdf
+
+
+composer require pusher/pusher-php-server
+đăng ký tài khoản pusher lấy id pass và ...
+PUSHER_APP_ID=1814996
+PUSHER_APP_KEY=d8c5af2cbc04ef598531
+PUSHER_APP_SECRET=fc7d41a44ee15212b50c
+
+config/broadcasting.php 'pusher' => [
+    'driver' => 'pusher',
+    'key' => env('PUSHER_APP_KEY'),
+    'secret' => env('PUSHER_APP_SECRET'),
+    'app_id' => env('PUSHER_APP_ID'),
+    'options' => [
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+        'useTLS' => true,
+    ],
+],
+npm install toastr
+
+npm install laravel-echo pusher-js --save
+
+php artisan make:event OrderPlaced

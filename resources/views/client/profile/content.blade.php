@@ -3,6 +3,7 @@
         <div class="card-header p-2">
             <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" href="#payments" data-toggle="tab" >Payments</a></li>
             </ul>
         </div><!-- /.card-header -->
         <div class="card-body">
@@ -46,8 +47,10 @@
                     </form>
                 </div>
                 <!-- /.tab-pane -->
+                <div class="tab-pane" id="payments">
+                    <a href="/profile/payments/{{Auth::user()->id}}">Show Your Payments Proceeding</a>
+                </div>
             </div>
-            <!-- /.tab-content -->
         </div><!-- /.card-body -->
     </div>
     <!-- /.card -->

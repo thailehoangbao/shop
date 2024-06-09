@@ -97,6 +97,7 @@ Route::middleware(['auth'])->group(function () {
 
             Route::get('edit/{payment}', [AdminPaymentController::class, 'show'])->name('payment.edit');
             Route::post('edit/{payment}', [AdminPaymentController::class, 'update']);
+            Route::get('notification/{payment}', [AdminPaymentController::class, 'notification']);
         });
 
         #blog
@@ -168,6 +169,7 @@ Route::prefix('/')->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('info', [ProfileController::class, 'index'])->name('profile.index');
         Route::post('info', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('payments/{id}',[ProfileController::class,'payment'])->name('profile.payment');
     });
 
     Route::prefix('blog')->group(function () {

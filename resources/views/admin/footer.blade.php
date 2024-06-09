@@ -10,4 +10,5 @@
     <script src="/template/admin/dist/js/adminlte.min.js"></script>
     <!-- Page specific script -->
     <script src="/template/admin/js/main.js"></script>
+    
     @yield('ckeditorfooter')

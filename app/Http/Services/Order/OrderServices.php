@@ -3,10 +3,13 @@
 
 namespace App\Http\Services\Order;
 
+use App\Events\OrderPlaced;
 use App\Models\Order;
 
-class OrderServices {
-    public function create ($request, $user_id) {
+class OrderServices
+{
+    public function create($request, $user_id)
+    {
         try {
             $order = new Order();
             $order->product_id = $request->product_id;
@@ -22,7 +25,8 @@ class OrderServices {
         }
     }
 
-    public function delete ($id) {
+    public function delete($id)
+    {
         try {
             $order = Order::findOrFail($id);
             $order->delete();

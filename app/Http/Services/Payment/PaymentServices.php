@@ -48,6 +48,7 @@ class PaymentServices
             $payment->token = $token;
             $payment->list = $request->lists;
             $payment->status = 0;
+            $payment->notification = 0;
             $payment->save();
             return $payment;
         } catch (JWTException $e) {

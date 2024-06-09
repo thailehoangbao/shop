@@ -27,4 +27,9 @@ class ProfileController extends Controller
         }
         return redirect()->back()->with('error', 'Cập nhật thông tin thất bại');
     }
+
+    public function payment($id)
+    {
+        dd($id);
+    }
 }

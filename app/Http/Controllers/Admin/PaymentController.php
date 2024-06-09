@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Payment\PaymentServices;
+use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -79,5 +80,13 @@ class PaymentController extends Controller
             return redirect()->back()->with('success', 'Payment updated successfully!');
         }
         return redirect()->back()->with('error', 'Payment updated failed!');
+    }
+
+    public function notification($id)
+    {
+        $payment = Payment::find($id);
+        $payment->notification = 1;
+        $payment->save();
+        return redirect()->route('payment.list');
     }
 }

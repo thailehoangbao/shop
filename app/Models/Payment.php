@@ -14,7 +14,8 @@ class Payment extends Model
         'address',
         'status',
         'list',
-        'token'
+        'token',
+        'notification',
     ];
 
 }
