@@ -3,7 +3,7 @@
         <div class="card-header p-2">
             <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                <li class="nav-item"><a class="nav-link" href="#payments" data-toggle="tab" >Payments</a></li>
+                <li class="nav-item"><a class="nav-link" href="#payments" data-toggle="tab">Payments</a></li>
             </ul>
         </div><!-- /.card-header -->
         <div class="card-body">
@@ -48,7 +48,54 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="payments">
-                    <a href="/profile/payments/{{Auth::user()->id}}">Show Your Payments Proceeding</a>
+                    @if(!isset($payments))
+                        <p>Empty payments!</p>
+                    @else
+                        <p>List Payments is proceeding!</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th>List</th>
+                                <th>Updated_at</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($payments as $key => $payment)
+                            <tr>
+                                <td>{{ $payment['id'] }}</td>
+                                <td>{{ $payment->phone }}</td>
+                                <td>{{ $payment->address }}</td>
+                                <td>
+                                    {!! App\Helpers\Helpers::statusPayment($payment->status) !!}
+                                </td>
+                                <td>
+                                    <form action="{{ url('/profile/show-detail') }}" method="get">
+                                        @csrf
+                                        <input type="hidden" name="list" value="{{ $payment['list'] }}">
+                                        <button type="submit" class="text-primary"> show detail</button>
+                                    </form>
+                                </td>
+                                <td>{{ $payment['updated_at'] }}</td>
+                                <td class="d-flex">
+                                    <form action="{{ url('/profile/destroy-payment') }}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value="{{ $payment['id'] }}">
+                                        <button type="submit" class="btn btn-danger"> <i class="fa-solid fa-circle-xmark"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+
+
+                    </table>
+                    @endif
                 </div>
             </div>
         </div><!-- /.card-body -->

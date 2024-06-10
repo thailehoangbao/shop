@@ -6,7 +6,6 @@
 <body >
 	<!-- Header -->
     @include('client.header')
-
     @yield('body')
 
 	<!-- Footer -->

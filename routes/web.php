@@ -169,7 +169,8 @@ Route::prefix('/')->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('info', [ProfileController::class, 'index'])->name('profile.index');
         Route::post('info', [ProfileController::class, 'update'])->name('profile.update');
-        Route::get('payments/{id}',[ProfileController::class,'payment'])->name('profile.payment');
+        Route::delete('destroy-payment', [ProfileController::class, 'destroy']);
+        Route::get('show-detail', [ProfileController::class, 'showDetail']);
     });
 
     Route::prefix('blog')->group(function () {

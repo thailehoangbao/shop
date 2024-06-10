@@ -17,5 +17,8 @@ class Payment extends Model
         'token',
         'notification',
     ];
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

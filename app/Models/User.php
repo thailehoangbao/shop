@@ -42,7 +42,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Post::class, 'user_id'); // Adding posts relationship
     }
-
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'user_id'); // Thêm phương thức payments
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

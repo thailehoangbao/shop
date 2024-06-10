@@ -49,6 +49,7 @@ class PaymentServices
             $payment->list = $request->lists;
             $payment->status = 0;
             $payment->notification = 0;
+            $payment->user_id = auth()->id();
             $payment->save();
             return $payment;
         } catch (JWTException $e) {
@@ -82,4 +83,6 @@ class PaymentServices
             return false;
         }
     }
+
+
 }

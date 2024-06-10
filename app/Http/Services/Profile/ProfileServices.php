@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Profile;
 
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -46,5 +47,26 @@ class ProfileServices
         }
 
         return true;
+    }
+
+    public function getListsPayments($id)
+    {
+        return Payment::where('user_id', $id)->orderBy('created_at', 'desc')->get();
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $payment = Payment::find($id);
+
+            if ($payment->status == 0) {
+                $payment->delete();
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

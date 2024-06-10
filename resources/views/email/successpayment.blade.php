@@ -8,10 +8,12 @@
 </head>
 
 <body>
-    <h1 style="font-size: larger;color: blue; font-weight: 500;">Bạn đã đặt hàng thành công</h1>
-    <p>Chúng tôi sẽ gửi đến {{$address}} sớm nhất.</p>
-    <p>Chúng tôi sẽ liên hệ với bạn bằng số điện thoại: {{$phone}} để nhận hàng!</p>
-    <a href="/">Bấm vào để về trang chủ!</a>
+    <div style="background-color: #f3f3f3; height: 100vh;width: 100vw;">
+        <h1 style="font-size: larger;color: blue; font-weight: 500;">Bạn đã đặt hàng thành công</h1>
+        <p>Chúng tôi sẽ gửi đến {{$address}} sớm nhất.</p>
+        <p>Chúng tôi sẽ liên hệ với bạn bằng số điện thoại: {{$phone}} để nhận hàng!</p>
+        <a href="/">Bấm vào để về trang chủ!</a>
+    </div>
 </body>
 
 </html>
