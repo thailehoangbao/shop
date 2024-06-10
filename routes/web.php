@@ -17,6 +17,7 @@ use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\PaymentController;
 use App\Http\Controllers\Client\Profile\ProfileController;
+use App\Http\Controllers\Client\Search\SearchController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
 use App\Http\Controllers\EmailController;
@@ -183,5 +184,9 @@ Route::prefix('/')->group(function () {
 
 
         Route::get('comment', [ClientBlogController::class, 'comment'])->name('blog.comment');
+    });
+
+    Route::prefix('search')->group(function () {
+        Route::post('product', [SearchController::class, 'searchProduct'])->name('search.product');
     });
 });
