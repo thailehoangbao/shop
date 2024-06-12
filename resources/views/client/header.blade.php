@@ -33,7 +33,7 @@
 
                 <!-- Logo desktop -->
                 <a href="#" class="logo">
-                    <img src="/template/client/images/icons/logo-01.png" alt="IMG-LOGO">
+                    <img src="{{ asset('images/miumiustore_transparent.png') }}" alt="IMG-LOGO" width="120" height="60" style="background-image: img-fluid;">
                 </a>
 
                 <!-- Menu desktop -->

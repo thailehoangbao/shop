@@ -60,6 +60,7 @@
                         </form>
 
                     </div>
+                    @include('client.users.loginggfb')
 
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">

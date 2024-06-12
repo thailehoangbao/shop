@@ -76,15 +76,15 @@
 
                 <div class="p-t-27">
                     <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-facebook"></i>
+                        <i class="fa-brands fa-facebook"></i>
                     </a>
 
                     <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-instagram"></i>
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
 
                     <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-pinterest-p"></i>
+                        <i class="fa-brands fa-google"></i>
                     </a>
                 </div>
             </div>
@@ -94,17 +94,28 @@
                     Newsletter
                 </h4>
 
-                <form>
+                <form action="{{route('client.feedback')}}" method="post">
                     <div class="wrap-input1 w-full p-b-4">
                         <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
                         <div class="focus-input1 trans-04"></div>
+                        @error('email')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="wrap-input1 w-full p-b-4">
+                        <textarea class="p-2" name="content" id="email-idea" cols="35" rows="2" placeholder="Send your message..."></textarea>
+                        @error('content')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
 
                     <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04" style="border-radius: 4px;">
                             Subscribe
                         </button>
                     </div>
+                    @csrf
                 </form>
             </div>
         </div>

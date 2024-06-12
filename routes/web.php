@@ -20,6 +20,7 @@ use App\Http\Controllers\Client\Profile\ProfileController;
 use App\Http\Controllers\Client\Search\SearchController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
+use App\Http\Controllers\Client\Users\GoogleController;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -146,6 +147,13 @@ Route::prefix('/')->group(function () {
         Route::post('reset-password/{id}/{token}', [ClientLoginController::class, 'updatePassword']);
 
         Route::post('logout', [ClientLoginController::class, 'logout'])->name('client.logout');
+
+        Route::prefix('google')->group(function () {
+            Route::get('', [GoogleController::class, 'redirectToGoogle']);
+            Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
+        });
+
+        Route::post('feedback', [ClientMainController::class, 'feedback'])->name('client.feedback');
     });
 
     Route::get('category/{menu}', [CategoryController::class, 'index']);
@@ -189,4 +197,6 @@ Route::prefix('/')->group(function () {
     Route::prefix('search')->group(function () {
         Route::post('product', [SearchController::class, 'searchProduct'])->name('search.product');
     });
+
+
 });
