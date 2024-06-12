@@ -32,8 +32,8 @@
             <nav class="limiter-menu-desktop container">
 
                 <!-- Logo desktop -->
-                <a href="#" class="logo">
-                    <img src="{{ asset('images/miumiustore_transparent.png') }}" alt="IMG-LOGO" width="120" height="60" style="background-image: img-fluid;">
+                <a href="#" class="logo__client">
+                    <img src="{{ asset('images/miumiustore_transparent.png') }}" alt="IMG-LOGO" width="120" height="60" >
                 </a>
 
                 <!-- Menu desktop -->
@@ -57,6 +57,8 @@
                         @endforeach
 
                         <li><a href="/blog/info">Blog</a></li>
+                        <li><a href="/about/info">About</a></li>
+                        <li><a href="/contact/info">Contact</a></li>
                     </ul>
                 </div>
 

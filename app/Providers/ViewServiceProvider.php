@@ -35,7 +35,7 @@ class ViewServiceProvider extends ServiceProvider
         Facades\View::composer(['admin.modal'],PaymentsComposer::class);
 
 
-        Facades\View::composer(['client.header','client.banner','client.product'],MenuComposer::class);
+        Facades\View::composer(['client.header','client.banner','client.product','client.footer'],MenuComposer::class);
         Facades\View::composer(['client.slider'],SliderComposer::class);
         Facades\View::composer(['client.product'],ProductComposer::class);
         Facades\View::composer('client.header',AmountProductComposer::class);

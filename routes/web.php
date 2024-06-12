@@ -10,8 +10,10 @@ use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
+use App\Http\Controllers\Client\About\AboutController;
 use App\Http\Controllers\Client\Blog\BlogController as ClientBlogController;
 use App\Http\Controllers\Client\CategoryController;
+use App\Http\Controllers\Client\Contact\ContactController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Client\MainController as ClientMainController;
 use App\Http\Controllers\Client\OrderController;
@@ -198,5 +200,11 @@ Route::prefix('/')->group(function () {
         Route::post('product', [SearchController::class, 'searchProduct'])->name('search.product');
     });
 
+    Route::prefix('about')->group(function () {
+        Route::get('info', [AboutController::class, 'index']);
+    });
 
+    Route::prefix('contact')->group(function () {
+        Route::get('info', [ContactController::class, 'index']);
+    });
 });
