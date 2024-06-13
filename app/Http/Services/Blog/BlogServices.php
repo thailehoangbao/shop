@@ -40,4 +40,19 @@ class BlogServices
         }
         return true;
     }
+
+    public function searchPost($request)
+    {
+        try {
+            $posts = Post::where('title', 'like', '%' . $request->keyword . '%')
+                ->orWhere('sub_title_1', 'like', '%' . $request->keyword . '%')
+                ->orWhere('sub_title_2', 'like', '%' . $request->keyword . '%')
+                ->orWhere('sub_title_3', 'like', '%' . $request->keyword . '%')
+                ->get();
+            return $posts;
+        } catch (\Exception $e) {
+            Session::flash('error', $e->getMessage());
+            return false;
+        }
+    }
 }

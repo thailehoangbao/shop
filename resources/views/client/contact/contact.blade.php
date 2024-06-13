@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="bor8 m-b-30">
-                        <textarea  class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="content" placeholder="How Can We Help?"></textarea>
+                        <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="content" placeholder="How Can We Help?"></textarea>
                         @error('content')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -89,7 +89,8 @@
 
 
 <!-- Map -->
-<div class="map">
-    <div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="/images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
+<hr class="tm-hr-primary tm-mb-55">
+<div class="gmap_canvas"> <!-- Google Map -->
+    <iframe width="100%" height="477" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1707.067411779321!2d106.61937398055582!3d10.788743647282299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752de4586aef61%3A0x3f6309273d1f1799!2sMITS%20-%20Mia%20International%20Technology%20Solutions!5e0!3m2!1svi!2s!4v1718240467109!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 @endsection

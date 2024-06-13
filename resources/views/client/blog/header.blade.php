@@ -21,14 +21,18 @@
                         Post
                     </a>
                 </li>
-                <li class="tm-nav-item"><a href="{{route('blog.about')}}" class="tm-nav-link">
-                        <i class="fas fa-users"></i>
-                        About
-                    </a></li>
-                <li class="tm-nav-item"><a href="{{route('blog.contact')}}" class="tm-nav-link">
+                <li class="tm-nav-item">
+                    <a href="{{route('blog.contact')}}" class="tm-nav-link">
                         <i class="far fa-comments"></i>
                         Contact
-                    </a></li>
+                    </a>
+                </li>
+                <li class="tm-nav-item">
+                    <a href="{{route('home')}}" class="tm-nav-link">
+                        <i class="fa-solid fa-backward"></i>
+                        Go Home
+                    </a>
+                </li>
             </ul>
         </nav>
         <div class="tm-mb-65">
@@ -46,7 +50,7 @@
             </a>
         </div>
         <p class="tm-mb-80 pr-5 text-white">
-            Wellcome to our blog. You can download, edit, and use this template for your websites. Please tell your friends about <a href="https://templatemo.com" class="tm-color-primary">templatemo</a>. Thank you.
+            Wellcome to our blog. Please tell your friends about <a href="https://templatemo.com" class="tm-color-primary">templatemo</a>. Thank you.
         </p>
     </div>
 </header>

@@ -51,7 +51,7 @@
                         @csrf
                         <!-- <input type="hidden" name="lists" value="{{ json_encode($lists) }}"> -->
                         <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                            View Cart
+                            Payment
                         </button>
                     </form>
 

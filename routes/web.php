@@ -189,9 +189,10 @@ Route::prefix('/')->group(function () {
         Route::get('post', [ClientBlogController::class, 'post'])->name('blog.post');
         Route::post('post', [ClientBlogController::class, 'userCreatePost']);
         Route::get('post/{post}', [ClientBlogController::class, 'postDetail']);
-        Route::get('about', [ClientBlogController::class, 'about'])->name('blog.about');
         Route::get('contact', [ClientBlogController::class, 'contact'])->name('blog.contact');
-
+        Route::prefix('search')->group(function () {
+            Route::post('post', [ClientBlogController::class, 'searchPost'])->name('blog.search');
+        });
 
         Route::get('comment', [ClientBlogController::class, 'comment'])->name('blog.comment');
     });

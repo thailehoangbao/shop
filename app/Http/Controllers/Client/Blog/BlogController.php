@@ -75,4 +75,13 @@ class BlogController extends Controller
         $comment->save();
         return redirect()->back()->with('success', 'You send comment success!');
     }
+
+    public function searchPost(Request $request)
+    {
+        $posts = $this->blogServices->searchPost($request);
+        if($posts){
+            return view('client.blog.showsearch', compact('posts'));
+        }
+        return redirect()->back()->with('error', 'Search post is error!');
+    }
 }
