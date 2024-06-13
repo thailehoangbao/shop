@@ -175,6 +175,8 @@ Route::prefix('/')->group(function () {
 
         Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
         Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+
+        Route::get('my-account', [ClientMainController::class, 'myAccount']);
     });
 
     Route::prefix('profile')->group(function () {

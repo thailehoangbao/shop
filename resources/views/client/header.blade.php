@@ -13,7 +13,7 @@
                         Help & FAQs
                     </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                    <a href="/my-account" class="flex-c-m trans-04 p-lr-25">
                         My Account
                     </a>
 
@@ -32,7 +32,7 @@
             <nav class="limiter-menu-desktop container">
 
                 <!-- Logo desktop -->
-                <a href="#" class="logo__client">
+                <a href="/" class="logo__client">
                     <img src="{{ asset('images/miumiustore_transparent.png') }}" alt="IMG-LOGO" width="120" height="60" >
                 </a>
 
