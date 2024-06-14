@@ -11,15 +11,33 @@
                     </h3>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat consequat enim, non auctor massa ultrices non. Morbi sed odio massa. Quisque at vehicula tellus, sed tincidunt augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas varius egestas diam, eu sodales metus scelerisque congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas gravida justo eu arcu egestas convallis. Nullam eu erat bibendum, tempus ipsum eget, dictum enim. Donec non neque ut enim dapibus tincidunt vitae nec augue. Suspendisse potenti. Proin ut est diam. Donec condimentum euismod tortor, eget facilisis diam faucibus et. Morbi a tempor elit.
+                        Chào mừng bạn đến với MiuMiu Store, nơi mà thời trang không chỉ là quần áo, mà còn là phong cách sống, sự tự tin và bản sắc cá nhân. Chúng tôi tự hào là một trong những điểm đến hàng đầu cho những ai yêu thích sự đổi mới và chất lượng trong thời trang.
+
+                        Câu Chuyện Của Chúng Tôi
+
+                        Khởi đầu từ niềm đam mê bất tận với thời trang, MiuMiu Store được sáng lập với sứ mệnh mang đến những bộ trang phục không chỉ đẹp mắt mà còn phản ánh đúng con người bạn. Chúng tôi tin rằng, mỗi người đều có một phong cách riêng, và việc thể hiện phong cách đó qua trang phục hàng ngày chính là cách bạn thể hiện chính mình với thế giới.
+
+                        Giá Trị Của Chúng Tôi
                     </p>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula.
+                        Chất Lượng Trên Hết: Chúng tôi chọn lựa kỹ càng từng chất liệu, từng đường kim mũi chỉ để đảm bảo sản phẩm đến tay bạn luôn hoàn hảo nhất. Mỗi bộ trang phục là một sự kết hợp giữa tay nghề tinh tế và vật liệu cao cấp.
+
+                        Đa Dạng Phong Cách: Dù bạn theo đuổi sự thanh lịch, cá tính hay năng động, MiuMiu Store luôn có những lựa chọn phong phú để bạn tỏa sáng trong mọi hoàn cảnh. Bộ sưu tập của chúng tôi được cập nhật thường xuyên theo xu hướng thời trang mới nhất trên thế giới.
+
+                        Phục Vụ Tận Tâm: Sự hài lòng của khách hàng là ưu tiên hàng đầu của chúng tôi. Đội ngũ chăm sóc khách hàng của MiuMiu Store luôn sẵn sàng hỗ trợ bạn trong quá trình chọn lựa, mua sắm và hậu mãi.
+
+                        Tầm Nhìn Của Chúng Tôi
+
+                        Chúng tôi mong muốn trở thành người bạn đồng hành đáng tin cậy trên hành trình thời trang của bạn. Không chỉ bán quần áo, chúng tôi còn mang đến những gợi ý phối đồ, những bí quyết thời trang và các xu hướng mới nhất để giúp bạn luôn tự tin và nổi bật.
                     </p>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                        Lời Kết
+
+                        Tại MiuMiu Store, chúng tôi không chỉ bán quần áo, mà chúng tôi còn truyền tải một thông điệp về phong cách và sự tự tin. Chúng tôi hy vọng rằng, mỗi sản phẩm của chúng tôi sẽ giúp bạn cảm thấy thoải mái, hạnh phúc và thể hiện được cái tôi riêng biệt của mình. Hãy để chúng tôi đồng hành cùng bạn trên con đường khám phá và định hình phong cách cá nhân.
+
+                        Cảm ơn bạn đã chọn MiuMiu Store. Chúc bạn có những trải nghiệm mua sắm tuyệt vời và tìm được những món đồ ưng ý!
                     </p>
                 </div>
             </div>
@@ -41,16 +59,38 @@
                     </h3>
 
                     <p class="stext-113 cl6 p-b-26">
-                        Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in, porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.
+                        Sứ Mệnh Và Mục Tiêu Toàn Cầu Của Chúng Tôi
+
+                        Tại MiuMiu Store, sứ mệnh của chúng tôi không chỉ dừng lại ở việc cung cấp những bộ trang phục chất lượng cao, mà còn hướng đến việc tạo ra một nền tảng thời trang toàn cầu. Chúng tôi khao khát chinh phục những khách hàng khó tính nhất, mang đến cho họ những trải nghiệm mua sắm tuyệt vời và những sản phẩm thời trang đẳng cấp.
+
+                        Sứ Mệnh Của Chúng Tôi
+
+                        Mang Đến Giá Trị Thời Trang Thực Sự: Chúng tôi không chỉ bán quần áo, chúng tôi mang đến những giá trị thời trang thực sự. Mỗi sản phẩm của chúng tôi đều được thiết kế và sản xuất với sự tận tâm, phản ánh tinh thần sáng tạo và sự đam mê thời trang của chúng tôi.
+
+                        Truyền Cảm Hứng Và Tự Tin: Chúng tôi tin rằng thời trang có thể thay đổi cách bạn nhìn nhận về bản thân và thế giới xung quanh. Bằng cách mang đến những bộ trang phục phù hợp với phong cách và cá tính riêng của mỗi người, chúng tôi hy vọng sẽ giúp khách hàng tự tin hơn trong cuộc sống hàng ngày.
+
+                        Mục Tiêu Toàn Cầu Của Chúng Tôi
+
+                        Mở Rộng Thị Trường Quốc Tế: Chúng tôi không ngừng nỗ lực mở rộng phạm vi hoạt động của mình trên toàn cầu. Mục tiêu của chúng tôi là mang thương hiệu MiuMiu Store đến với nhiều quốc gia, trở thành một cái tên quen thuộc và được tin tưởng trong ngành công nghiệp thời trang quốc tế.
+
+                        Chinh Phục Những Khách Hàng Khó Tính Nhất: Chúng tôi hiểu rằng, mỗi khách hàng đều có những tiêu chuẩn và yêu cầu riêng về thời trang. Để đáp ứng được những khách hàng khó tính nhất, chúng tôi cam kết luôn nâng cao chất lượng sản phẩm và dịch vụ, không ngừng sáng tạo và cải tiến.
+
+                        Định Hình Xu Hướng Thời Trang: Với sự nhạy bén trong việc nắm bắt và định hình xu hướng, chúng tôi đặt mục tiêu trở thành người dẫn đầu trong việc giới thiệu và phổ biến những xu hướng thời trang mới nhất. Chúng tôi muốn trở thành nguồn cảm hứng thời trang cho khách hàng trên toàn thế giới.
+
+                        Cam Kết Của Chúng Tôi
+
+
                     </p>
 
                     <div class="bor16 p-l-29 p-b-9 m-t-22">
                         <p class="stext-114 cl6 p-r-40 p-b-11">
-                            Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+                            Chúng tôi cam kết luôn đặt khách hàng làm trọng tâm trong mọi hoạt động. Mỗi sản phẩm, mỗi dịch vụ của MiuMiu Store đều được xây dựng dựa trên sự tỉ mỉ, chú trọng đến từng chi tiết nhỏ nhất để mang lại trải nghiệm hoàn hảo cho bạn.
+
+                            Hãy cùng chúng tôi khám phá và chinh phục những đỉnh cao mới trong thế giới thời trang. Cảm ơn bạn đã đồng hành và tin tưởng MiuMiu Store. Chúng tôi hứa sẽ không ngừng nỗ lực để mang đến cho bạn những điều tốt đẹp nhất!
                         </p>
 
                         <span class="stext-111 cl8">
-                            - Steve Job’s
+                            - MiuMiu Store -
                         </span>
                     </div>
                 </div>

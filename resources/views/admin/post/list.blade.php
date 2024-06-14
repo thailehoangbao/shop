@@ -37,13 +37,19 @@
                 <th>{{ \App\Helpers\Helpers::shorten($list['link']) }}</th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['sub_title_1']) }}</th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['content_1']) }}</th>
-                <th>{{ \App\Helpers\Helpers::shorten($list['thumb_1']) }}</th>
+                <th>
+                    <img src="{{ asset('storage/uploads/'.$list['thumb_1']) }}" alt="{{ $list['thumb_1'] }}" width="50" height="50">
+                </th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['sub_title_2']) }}</th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['content_2']) }}</th>
-                <th>{{ \App\Helpers\Helpers::shorten($list['thumb_2']) }}</th>
+                <th>
+                    <img src="{{ asset('storage/uploads/'.$list['thumb_2']) }}" alt="{{ $list['thumb_2'] }}" width="50" height="50">
+                </th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['sub_title_3']) }}</th>
                 <th>{{ \App\Helpers\Helpers::shorten($list['content_3']) }}</th>
-                <th>{{ \App\Helpers\Helpers::shorten($list['thumb_3']) }}</th>
+                <th>
+                    <img src="{{ asset('storage/uploads/'.$list['thumb_3']) }}" alt="{{ $list['thumb_3'] }}" width="50" height="50">
+                </th>
                 <td>{{ $list['updated_at'] }}</td>
                 <td class="d-flex">
                     <a href="/admin/blog/post/edit/{{ $list->id }}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>

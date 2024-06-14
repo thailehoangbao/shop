@@ -15,7 +15,7 @@ class CreateFormRequest extends FormRequest
             'name' => 'required',
             'url' => 'required',
             'sort_by' => 'required',
-            'thumb' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumb' => 'required|mimes:jpeg,png,jpg,gif,svg|max:5024',
         ];
     }
 

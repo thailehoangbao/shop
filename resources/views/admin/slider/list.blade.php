@@ -38,6 +38,7 @@
 
 
 </table>
+<img src="{{ asset('storage/uploads/1718358355_Banner2.png') }}" alt="{{ $slider->name }}">
 <div class="d-flex justify-content-center">
     {{ $sliders->links('pagination::bootstrap-4') }}
 </div>
