@@ -21,9 +21,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = $this->productServices->getList();
         return view('admin.product.list',[
             'title' => 'Danh Sách Danh Mục',
-            'products' => $this->productServices->getList()
+            'products' => $products
         ]);
     }
 
@@ -32,13 +33,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // $menusParent = $this->productServices->getMenu(0);
-        // $menusChild = $this->productServices->getAllSubMenus();
-        // return view('admin.product.add',[
-        //     'title' => 'Thêm sản phẩm',
-        //     'menusParent' => $menusParent,
-        //     'menusChild' => $menusChild
-        // ]);
         $menus = $this->productServices->getAllSubMenus();
         return view('admin.product.add',[
             'title' => 'Thêm sản phẩm',
@@ -61,9 +55,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $menus = $this->productServices->getAllSubMenus();
         return view('admin.product.edit',[
             'title' => 'Chỉnh Sửa Sản Phẩm '.$product->name,
-            'product' => $product
+            'product' => $product,
+            'menus' => $menus
         ]);
     }
 

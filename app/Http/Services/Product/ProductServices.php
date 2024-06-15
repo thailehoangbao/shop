@@ -68,6 +68,7 @@ class ProductServices
 
     public function getList()
     {
+
         return Product::with('menu')->orderByDesc('id')->paginate(5);
     }
 

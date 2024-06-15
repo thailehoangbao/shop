@@ -35,6 +35,24 @@
             </div>
 
             <div class="form-group">
+                <label for="danhmuc">Danh Mục Submenu</label>
+
+                <select class="form-control" name="menu_id">
+                    @foreach($menus as $menu)
+                    @if($menu->id == $product->menu_id)
+                    <option value="{{$menu->id}}">{{$menu->name}}</option>
+                    @endif
+                    @endforeach
+                    @foreach($menus as $menu)
+                    <option value="{{$menu->id}}">{{$menu->name}}</option>
+                    @endforeach
+                </select>
+                @error('menu_id')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="price">Giá </label>
                 <textarea type="number" name="price" class="form-control" id="price" placeholder="Enter Giá">{{$product->price}}</textarea>
                 @error('price')
@@ -71,12 +89,12 @@
             <div class="mt-2">
                 <img src="{{ asset('storage/uploads/'.$product->thumb) }}" alt="{{ $product->name }}" width="100" height="100">
             </div>
-        <!-- /.card-body -->
+            <!-- /.card-body -->
 
-        <div class="card-footer">
-            <button type="submit" name="submit" value="submit" class="btn btn-primary">Update sản phẩm</button>
-        </div>
-        @csrf
+            <div class="card-footer">
+                <button type="submit" name="submit" value="submit" class="btn btn-primary">Update sản phẩm</button>
+            </div>
+            @csrf
     </form>
 </div>
 @endsection
