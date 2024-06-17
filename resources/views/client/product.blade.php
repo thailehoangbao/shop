@@ -37,7 +37,7 @@
             </div>
 
             <!-- Search product -->
-            <div class="dis-none panel-search w-full p-t-10 p-b-15" >
+            <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 <form class="bor8 dis-flex p-l-15" method="post" action="{{route('search.product')}}">
                     <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" type="submit">
                         <i class="zmdi zmdi-search"></i>
@@ -257,9 +257,26 @@
                                 {{ $product->name }}
                             </a>
 
-                            <span class="stext-105 cl3">
+                            <!-- <span class="stext-105 cl3">
                                 {{ $product->price }} VND
-                            </span>
+                            </span> -->
+                            <div>
+                                @if ($product->price_sale != 0)
+                                @php
+                                $discountedPrice = $product->price - ($product->price * $product->price_sale / 100);
+                                @endphp
+                                <span class="discounted-price">
+                                    {{ number_format($discountedPrice) }} VND
+                                </span>
+                                <span class="original-price" style="text-decoration: line-through;">
+                                    {{ number_format($product->price) }} VND
+                                </span>
+                                @else
+                                <span class="stext-105 cl3">
+                                    {{ number_format($product->price) }} VND
+                                </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="block2-txt-child2 flex-r p-t-3">

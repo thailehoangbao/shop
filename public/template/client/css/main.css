@@ -3356,3 +3356,19 @@ input.num-product::-webkit-inner-spin-button {
         transform: scale(1.2); /* Tăng kích thước lên 20% */
     }
 }
+
+/* Css cho phần price_product */
+.original-price {
+    color: #b0b0b0; /* Màu xám cho giá gạch ngang */
+    margin-right: 10px; /* Khoảng cách giữa giá gốc và giá đã giảm */
+}
+
+.discounted-price {
+    font-family: Montserrat-Regular;
+    color: #333; /* Màu đỏ cho giá đã giảm */
+}
+
+.stext-105.cl3 {
+    color: #333; /* Màu cho giá bình thường nếu không có giảm giá */
+}
+
