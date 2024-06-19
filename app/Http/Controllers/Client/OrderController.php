@@ -17,6 +17,9 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
+        if (!auth()->check()) {
+            return redirect('/client/login');
+        }
         $user_id = auth()->user()->id;
         $result = $this->order->create($request, $user_id);
         if($result === true) {

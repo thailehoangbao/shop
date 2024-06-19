@@ -17,8 +17,8 @@
             e.preventDefault();
 
             var formData = {
-                email: $("#email").val(),
-                password: $("#password").val(),
+                email: $("#l-email").val(),
+                password: $("#l-password").val(),
             };
 
             $.ajax({
@@ -366,12 +366,26 @@
     $(".js-show-modal1").on("click", function (e) {
         e.preventDefault();
         var product = $(this).closest(".isotope-item").data("product");
-
+        var total_price =
+            product.price - (product.price * product.price_sale) / 100;
         // Set the product details in the modal
         $(".js-modal1 .js-name-detail").text(product.name);
-        $(".js-modal1 .mtext-106").text(
-            product.price + " VND - " + "Discount: " + product.price_sale + " %"
-        );
+
+        if (product.price_sale == 0) {
+            $(".js-modal1 .mtext-106").text(
+                "Giá: " + product.price.toLocaleString("vi-VN") + " VND"
+            );
+        } else {
+            // Giả định total_price được tính toán ở đâu đó trong mã của bạn
+            $(".js-modal1 .mtext-106").text(
+                "Giá: " +
+                    total_price.toLocaleString("vi-VN") +
+                    " VND - " +
+                    "Sale off " +
+                    product.price_sale +
+                    " %"
+            );
+        }
         $(".js-modal1 .stext-102").text(product.description);
         $(".js-modal1 .wrap-pic-w img").attr(
             "src",
@@ -388,60 +402,47 @@
     });
 
     $(".js-addcart-detail").on("click", function (e) {
-        // Function to check if user is logged in
-        function isLoggedIn() {
-            let user = localStorage.getItem("user");
-            if (!user) return false;
-            return true;
-        }
-
         e.preventDefault();
 
         var product = $(".js-modal1").data("product");
         var form = $(this).closest("form");
-        if (isLoggedIn()) {
-            var size = form.find('select[name="size"]').val();
-            var color = form.find('select[name="color"]').val();
-            var amount = form.find('input[name="num-product"]').val();
+        var size = form.find('select[name="size"]').val();
+        var color = form.find('select[name="color"]').val();
+        var amount = form.find('input[name="num-product"]').val();
 
-            // Thêm thông tin sản phẩm vào form trước khi submit
-            $("<input>")
-                .attr({
-                    type: "hidden",
-                    name: "product_id",
-                    value: product.id,
-                })
-                .appendTo(form);
+        // Thêm thông tin sản phẩm vào form trước khi submit
+        $("<input>")
+            .attr({
+                type: "hidden",
+                name: "product_id",
+                value: product.id,
+            })
+            .appendTo(form);
 
-            $("<input>")
-                .attr({
-                    type: "hidden",
-                    name: "size",
-                    value: size,
-                })
-                .appendTo(form);
+        $("<input>")
+            .attr({
+                type: "hidden",
+                name: "size",
+                value: size,
+            })
+            .appendTo(form);
 
-            $("<input>")
-                .attr({
-                    type: "hidden",
-                    name: "color",
-                    value: color,
-                })
-                .appendTo(form);
+        $("<input>")
+            .attr({
+                type: "hidden",
+                name: "color",
+                value: color,
+            })
+            .appendTo(form);
 
-            $("<input>")
-                .attr({
-                    type: "hidden",
-                    name: "amount",
-                    value: amount,
-                })
-                .appendTo(form);
+        $("<input>")
+            .attr({
+                type: "hidden",
+                name: "amount",
+                value: amount,
+            })
+            .appendTo(form);
 
-            form.submit();
-        } else {
-            // Nếu chưa đăng nhập, chuyển đến trang đăng nhập
-            window.location.href = "/client/login";
-        }
+        form.submit();
     });
-
 })(jQuery);

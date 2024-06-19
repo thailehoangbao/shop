@@ -256,10 +256,6 @@
                             <a href="/detail/{{$product->id}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                 {{ $product->name }}
                             </a>
-
-                            <!-- <span class="stext-105 cl3">
-                                {{ $product->price }} VND
-                            </span> -->
                             <div>
                                 @if ($product->price_sale != 0)
                                 @php
