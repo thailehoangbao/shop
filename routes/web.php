@@ -22,6 +22,7 @@ use App\Http\Controllers\Client\Profile\ProfileController;
 use App\Http\Controllers\Client\Search\SearchController;
 use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
+use App\Http\Controllers\Client\Users\FacebookController;
 use App\Http\Controllers\Client\Users\GoogleController;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
@@ -153,6 +154,11 @@ Route::prefix('/')->group(function () {
         Route::prefix('google')->group(function () {
             Route::get('', [GoogleController::class, 'redirectToGoogle']);
             Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
+        });
+
+        Route::prefix('facebook')->group(function(){
+            Route::get('',[FacebookController::class ,'redirectToFacebook'])->name('auth.facebook');
+            Route::get('callback',[FacebookController::class, 'handleFacebookCallback']);
         });
 
         Route::post('feedback', [ClientMainController::class, 'feedback'])->name('client.feedback');
