@@ -4,7 +4,7 @@
     <!-- Brand Logo -->
     <a href="/admin" class="brand-link">
         <img src="/template/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">AdminLTE Layout</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,7 +15,7 @@
                 <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -37,10 +37,34 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Quản lý User -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                            <p>
+                                User
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('users.add') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm người dùng</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('users.list') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách người dùng</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <!-- Danh Mục Menu -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <i class="fa-solid fa-bars"></i>
                             <p>
                                 Danh Mục
                                 <i class="right fas fa-angle-left"></i>
@@ -64,7 +88,7 @@
                     <!-- Sản Phẩm Menu -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-bowl-food"></i>
                             <p>
                                 Sản Phẩm
                                 <i class="right fas fa-angle-left"></i>
@@ -88,7 +112,7 @@
                     <!-- Slider Menu -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-sliders"></i>
                             <p>
                                 Slider
                                 <i class="right fas fa-angle-left"></i>
@@ -113,7 +137,7 @@
                     <!-- Orders Menu -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-store"></i>
                             <p>
                                 Orders Management
                                 <i class="right fas fa-angle-left"></i>
@@ -133,7 +157,7 @@
                     <!-- Payment Menu -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-coins"></i>
                             <p>
                                 Payment Management
                                 <i class="right fas fa-angle-left"></i>
@@ -153,7 +177,7 @@
                     <!-- Category Post -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-list"></i>
                             <p>
                                 Category Post
                                 <i class="right fas fa-angle-left"></i>
@@ -176,7 +200,7 @@
                     <!-- Posts -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="fa-solid fa-newspaper"></i>
                             <p>
                                 Posts
                                 <i class="right fas fa-angle-left"></i>

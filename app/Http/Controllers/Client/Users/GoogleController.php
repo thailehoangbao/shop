@@ -45,6 +45,7 @@ class GoogleController extends Controller
                     'google_id' => $user->id,
                     'password' => encrypt('123456dummy'),
                     'status' => 1,
+                    'role_id' => 1,
                 ]);
 
                 Auth::login($newUser);

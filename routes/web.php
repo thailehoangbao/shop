@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\Users\UserController;
+use App\Http\Controllers\Admin\UsersManageController;
 use App\Http\Controllers\Client\About\AboutController;
 use App\Http\Controllers\Client\Blog\BlogController as ClientBlogController;
 use App\Http\Controllers\Client\CategoryController;
@@ -47,6 +48,18 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('users/main', [UserController::class, 'index'])->name('admin');
         Route::get('main', [UserController::class, 'index']);
+
+        #users
+        Route::prefix('users')->group(function () {
+            Route::get('add', [UsersManageController::class, 'create'])->name('users.add');
+            Route::post('add', [UsersManageController::class, 'store']);
+            Route::get('list', [UsersManageController::class, 'index'])->name('users.list');
+
+            Route::delete('destroy', [UsersManageController::class, 'destroy']);
+
+            Route::get('edit/{user}', [UsersManageController::class, 'show'])->name('users.edit');
+            Route::post('edit/{user}', [UsersManageController::class, 'update']);
+        });
 
         #Menu
         Route::prefix('menus')->group(function () {
@@ -156,9 +169,9 @@ Route::prefix('/')->group(function () {
             Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
         });
 
-        Route::prefix('facebook')->group(function(){
-            Route::get('',[FacebookController::class ,'redirectToFacebook'])->name('auth.facebook');
-            Route::get('callback',[FacebookController::class, 'handleFacebookCallback']);
+        Route::prefix('facebook')->group(function () {
+            Route::get('', [FacebookController::class, 'redirectToFacebook'])->name('auth.facebook');
+            Route::get('callback', [FacebookController::class, 'handleFacebookCallback']);
         });
 
         Route::post('feedback', [ClientMainController::class, 'feedback'])->name('client.feedback');
