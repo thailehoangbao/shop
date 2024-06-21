@@ -534,44 +534,92 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table class="table" style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
-                                        <thead>
-                                            <tr style="background-color: #f2f2f2;">
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Id</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">User_Name</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Hình Ảnh</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Size</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Color</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Price</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ghi chú</th>
-                                                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Updated_at</th>
-                                            </tr>
-                                        </thead>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <table class="table" style="width: fit-content; border-collapse: collapse; font-family: Arial, sans-serif;margin-left: 300px;">
+                            <thead>
+                                <tr style="background-color: #f2f2f2;">
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Id</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Email</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Hình Ảnh</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Số Lượng</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Giá cuối</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ghi chú</th>
+                                    <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ngày Tạo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($lists as $key => $list)
+                                <tr>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['id'] }}</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->user->email }}</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                        <img src="{{ asset('storage/uploads/'.$list->product->thumb) }}" alt="{{ $list->product->name }}" width="30" height="30">
+                                    </td>
+
+
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->amount }}</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ number_format($list->total_price) }} VND</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->note }}</td>
+                                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['updated_at'] }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </table>
+
+
+
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="
+                                                mso-table-lspace: 0pt;
+                                                mso-table-rspace: 0pt;
+                                                background-color: #ffffff;
+                                                border-radius: 0;
+                                                color: #000000;
+                                                width: 680px;
+                                                margin: 0 auto;
+                                            " width="680">
                                         <tbody>
-                                            @foreach ($lists as $key => $list)
                                             <tr>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['id'] }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->user->email }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                                    <img src="{{ asset('storage/uploads/'.$list->product->thumb) }}" alt="{{ $list->product->name }}" width="30" height="30">
+                                                <td class="column column-1" style="
+                                                    mso-table-lspace: 0pt;
+                                                    mso-table-rspace: 0pt;
+                                                    font-weight: 400;
+                                                    text-align: left;
+                                                    padding-bottom: 5px;
+                                                    padding-top: 5px;
+                                                    vertical-align: top;
+                                                    border-top: 0px;
+                                                    border-right: 0px;
+                                                    border-bottom: 0px;
+                                                    border-left: 0px;
+                                                    " width="100%">
+                                                    <table border="0" cellpadding="0" cellspacing="0" class="empty_block block-1" role="presentation" style="
+                                                                mso-table-lspace: 0pt;
+                                                                mso-table-rspace: 0pt;
+                                                            " width="100%">
+                                                        <tr>
+                                                            <td class="pad">
+                                                                <div>
+
+                                                                    <p style="text-align: end;">Total Price: {{ number_format(\App\Helpers\Helpers::totalPrice($lists)) }} VND</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
                                                 </td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['size'] }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['color'] }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->product->price }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list->note }}</td>
-                                                <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ $list['updated_at'] }}</td>
                                             </tr>
-                                            @endforeach
                                         </tbody>
                                     </table>
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
-
-
-
 
 
 

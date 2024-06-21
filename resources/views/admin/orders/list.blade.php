@@ -7,9 +7,8 @@
             <th>Id</th>
             <th>User_Name</th>
             <th>Hình Ảnh</th>
-            <th>Size</th>
-            <th>Color</th>
-            <th>Price</th>
+            <th>Số Lượng</th>
+            <th>Total_price</th>
             <th>Ghi chú</th>
             <th>Updated_at</th>
             <th>Action</th>
@@ -23,9 +22,8 @@
             <td>
                 <img src="{{ asset('storage/uploads/'.$order->product->thumb) }}" alt="{{ $order->product->name }}" width="30" height="30">
             </td>
-            <td>{{ $order['size'] }}</td>
-            <td>{{ $order['color'] }}</td>
-            <td>{{ $order->product->price }}</td>
+            <td>{{ $order->amount }}</td>
+            <td>{{ number_format($order->total_price) }}</td>
             <th class="text-red">{{ $order->note}} </th>
             <td>{{ $order['updated_at'] }}</td>
             <td class="d-flex">

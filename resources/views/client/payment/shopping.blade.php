@@ -11,10 +11,9 @@
                                 <th class="column-1 text-center" style="padding-left: 20px!important;">Hình Ảnh</th>
                                 <th class="column-2 text-center" style="width: 300px;">Name</th>
                                 <th class="column-3 text-center">Price</th>
-                                <th class="column-4 text-center">Amount</th>
-                                <th class="column-5 text-center" style="width: 50px!important;">Size</th>
-                                <th class="column-6 text-center">Color</th>
-                                <th class="column-7 text-center" style="width: 400px;"></th>
+                                <th class="column-4 text-center">Discount</th>
+                                <th class="column-5 text-center">Amount</th>
+                                <th class="column-6 text-center">Last_Price</th>
                             </tr>
 
                             @foreach($lists as $item)
@@ -25,13 +24,12 @@
                                     </div>
                                 </td>
                                 <td class="column-2 text-center" style="width: 300px;">{{ $item->product->name }}</td>
-                                <td class="column-3 text-center">{{$item->product->price}}</td>
-                                <td class="column-4 text-center">
+                                <td class="column-3 text-center">{{number_format($item->product->price)}}</td>
+                                <td class="column-4 text-center">{{$item->product->discount/100}}%</td>
+                                <td class="column-5 text-center">
                                     {{ $item->amount }}
                                 </td>
-                                <td class="column-5" style="width: 50px!important;">{{$item->size}}</td>
-                                <td class="column-6">{{$item->color}}</td>
-                                <td class="column-7 text-center" style="width: 400px;">{{$item->product->price * $item->amount}} VND</td>
+                                <td class="column-6 text-center">{{number_format($item->total_price)}}</td>
                             </tr>
                             @endforeach
                         </table>
@@ -68,7 +66,7 @@
 
                         <div class="size-209">
                             <span class="mtext-110 cl2">
-                                {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
+                                {{ number_format(\App\Helpers\Helpers::totalPrice($lists)) }} VND
                             </span>
                         </div>
                     </div>
@@ -137,7 +135,7 @@
 
                         <div class="size-209 p-t-1">
                             <span class="mtext-110 cl2">
-                                {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
+                                {{ number_format(\App\Helpers\Helpers::totalPrice($lists)) }} VND
                             </span>
                         </div>
                     </div>

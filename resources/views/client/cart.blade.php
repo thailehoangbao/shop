@@ -27,7 +27,7 @@
                         </a>
 
                         <span class="header-cart-item-info">
-                            {{ $item->amount }} x {{ $item->product->price }} = {{ $item->amount * $item->product->price }} VND
+                            {{ $item->amount }} x {{ ($item->total_price)/($item->amount) }} = {{ $item->total_price }} VND
                             <form action="{{ url('/orders/destroy') }}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa không?');" style="display: inline;">
                                 @csrf
                                 @method('DELETE')

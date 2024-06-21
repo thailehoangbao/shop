@@ -33,3 +33,5 @@ npm install toastr
 npm install laravel-echo pusher-js --save
 
 php artisan make:event OrderPlaced
+
+composer require --dev kitloong/laravel-migrations-generator

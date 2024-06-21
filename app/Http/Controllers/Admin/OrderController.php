@@ -40,8 +40,10 @@ class OrderController extends Controller
     {
         $result = $this->orderServices->update($request, $order);
         if($result){
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Cập nhật đơn hàng thành công');
         }
+
+        return redirect()->back()->with('error', 'Cập nhật đơn hàng thất bại');
     }
 
     public function destroy(Request $request)

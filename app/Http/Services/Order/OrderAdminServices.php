@@ -23,8 +23,6 @@ class OrderAdminServices {
     public function update($request, Order $order)
     {
         try {
-            $order->size = $request->input('size');
-            $order->color = $request->input('color');
             $order->note = $request->input('note');
 
             $order->save();

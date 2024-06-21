@@ -16,10 +16,24 @@ class Helpers
     {
         $sum = 0;
         foreach ($lists as $list) {
-            $sum += ($list->product->price) * ($list->amount);
+            $sum += ($list->total_price) * ($list->amount);
         }
 
         return $sum;
+    }
+
+    public static function totalPrice2($lists)
+    {
+        $sum = 0;
+        foreach ($lists as $list) {
+            $sum += ($list['total_price']) * ($list['amount']);
+        }
+
+        return $sum;
+    }
+
+    public static function formatDate($date) {
+        return \Carbon\Carbon::parse($date)->format('d:m:Y s:i:H');
     }
 
     public static function handleFile($request, $thumbName)

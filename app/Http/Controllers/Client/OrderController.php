@@ -22,9 +22,10 @@ class OrderController extends Controller
         }
         $user_id = auth()->user()->id;
         $result = $this->order->create($request, $user_id);
-        if($result === true) {
-            return redirect()->back();
+        if($result) {
+            return redirect()->back()->with('success', 'Thêm vào giỏ hàng thành công!');
         }
+        return redirect()->back()->with('error', 'Thêm vào giỏ hàng thất bại!');
     }
 
     public function destroy( Request $request )

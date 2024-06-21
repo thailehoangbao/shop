@@ -391,6 +391,23 @@
             "src",
             "/storage/uploads/" + product.thumb
         );
+        if(product.price_sale != 0) {
+            product.price = product.price - (product.price * product.price_sale) / 100;
+            product.price_s = product.price_s - (product.price_s * product.price_sale) / 100;
+            product.price_l = product.price_l - (product.price_l * product.price_sale) / 100;
+        }
+
+        // Set the values for the select options
+        $("#price_choice .price__m").text("Size M - "+ product.price.toLocaleString("vi-VN") + " VND");
+        $("#price_choice .price__s").text("Size S - "+ product.price_s.toLocaleString("vi-VN") + " VND");
+        $("#price_choice .price__l").text("Size L - "+ product.price_l.toLocaleString("vi-VN") + " VND");
+
+        // Set the values for the select options
+        $("#price_choice .price_default").val(product.price);
+        $("#price_choice .price__m").val(product.price);
+        $("#price_choice .price__s").val(product.price_s);
+        $("#price_choice .price__l").val(product.price_l);
+
         $(".js-modal1").addClass("show-modal1");
 
         // Lưu product hiện tại vào modal để sử dụng khi Add to cart
@@ -399,6 +416,7 @@
 
     $(".js-hide-modal1").on("click", function () {
         $(".js-modal1").removeClass("show-modal1");
+        location.reload();
     });
 
     $(".js-addcart-detail").on("click", function (e) {
@@ -406,9 +424,10 @@
 
         var product = $(".js-modal1").data("product");
         var form = $(this).closest("form");
-        var size = form.find('select[name="size"]').val();
-        var color = form.find('select[name="color"]').val();
+        // var size = form.find('select[name="size"]').val();
+        // var color = form.find('select[name="color"]').val();
         var amount = form.find('input[name="num-product"]').val();
+        var price_choice = form.find('select[name="price_choice"]').val();
 
         // Thêm thông tin sản phẩm vào form trước khi submit
         $("<input>")
@@ -419,21 +438,21 @@
             })
             .appendTo(form);
 
-        $("<input>")
-            .attr({
-                type: "hidden",
-                name: "size",
-                value: size,
-            })
-            .appendTo(form);
+        // $("<input>")
+        //     .attr({
+        //         type: "hidden",
+        //         name: "size",
+        //         value: size,
+        //     })
+        //     .appendTo(form);
 
-        $("<input>")
-            .attr({
-                type: "hidden",
-                name: "color",
-                value: color,
-            })
-            .appendTo(form);
+        // $("<input>")
+        //     .attr({
+        //         type: "hidden",
+        //         name: "color",
+        //         value: color,
+        //     })
+        //     .appendTo(form);
 
         $("<input>")
             .attr({
@@ -442,7 +461,13 @@
                 value: amount,
             })
             .appendTo(form);
-
+        $("<input>")
+            .attr({
+                type: "hidden",
+                name: "price_choice",
+                value: price_choice,
+            })
+            .appendTo(form);
         form.submit();
     });
 })(jQuery);

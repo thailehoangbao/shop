@@ -17,7 +17,9 @@ class Product extends Model
         'thumb',
         'active',
         'price',
-        'price_sale'
+        'price_sale',
+        'price_s',
+        'price_l'
     ];
 
     public function menu()

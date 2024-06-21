@@ -16,6 +16,7 @@ class Order extends Model
         'note',
         'size',
         'color',
+        'total_price'
     ];
 
     public function user()

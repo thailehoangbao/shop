@@ -39,7 +39,7 @@
                             <p class="stext-102 cl3 p-t-23"></p>
 
                             <div class="p-t-33">
-                                <div class="flex-w flex-r-m p-b-10">
+                                <!-- <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-203 flex-c-m respon6">
                                         Size
                                     </div>
@@ -51,14 +51,31 @@
                                                 <option value="S">Size S</option>
                                                 <option value="M">Size M</option>
                                                 <option value="L">Size L</option>
-                                                <option value="XL">Size XL</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- ----------------------- -->
+                                <div class="flex-w flex-r-m p-b-10">
+                                    <div class="size-203 flex-c-m respon6">
+                                        Price _ Size
+                                    </div>
+
+                                    <div class="size-204 respon6-next">
+                                        <div class="rs1-select2 bor8 bg0">
+                                            <select class="js-select2" name="price_choice" id="price_choice">
+                                                <option class="price__default">Choose your price of size</option>
+                                                <option class="price__m" >Size M</option>
+                                                <option class="price__s" >Size S</option>
+                                                <option class="price__l" >Size L</option>
                                             </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="flex-w flex-r-m p-b-10">
+                                <!-- ----------------------- -->
+                                <!-- <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-203 flex-c-m respon6">
                                         Color
                                     </div>
@@ -75,7 +92,7 @@
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-204 flex-w flex-m respon6-next">

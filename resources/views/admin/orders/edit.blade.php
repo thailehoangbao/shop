@@ -20,15 +20,6 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Size</label>
-                <input type="text" name="size" disabled value="{{$order->size}}" class="form-control" id="size" placeholder="Enter Size">
-                <input type="text" name="size" hidden value="{{$order->size}}" class="form-control" id="size" placeholder="Enter Size">
-                @error('size')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
                 <label for="name">Số Lượng</label>
                 <input type="text" name="amount" disabled value="{{$order->amount}}" class="form-control" id="amount" placeholder="Enter amount">
                 <input type="text" name="amount" hidden value="{{$order->amount}}" class="form-control" id="amount" placeholder="Enter amount">
@@ -38,10 +29,10 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Màu Sắc</label>
-                <input type="text" name="color" disabled value="{{$order->color}}" class="form-control" id="color" placeholder="Enter color">
-                <input type="text" name="color" hidden value="{{$order->color}}" class="form-control" id="color" placeholder="Enter color">
-                @error('color')
+                <label for="name">Giá</label>
+                <input type="text" name="total_price" disabled value="{{$order->total_price}}" class="form-control" id="total_price" placeholder="Enter total_price">
+                <input type="text" name="total_price" hidden value="{{$order->total_price}}" class="form-control" id="total_price" placeholder="Enter total_price">
+                @error('total_price')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
