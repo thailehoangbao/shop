@@ -64,11 +64,11 @@ class ClientRegisterController extends Controller
         // Log the user in after registration
         // Auth::login($user);
         Mail::send('email.register', ['user' => $user,'token' => $token], function ($message) use ($user) {
-            $message->subject('Shopping - Xác nhận tài khoản');
-            $message->to($user->email, $user->name);
+            $message->to($user->email, $user->name)->subject('Shopping - Xác nhận tài khoản');
+            $message->from('diamondriverside.vip@gmail.com', 'MiuMiu Store');
         });
         // Redirect to home with success message
-        return redirect()->route('home')->with('success', 'Registration and login successful!');
+        return redirect()->route('home')->with('success', 'Vui lòng vào Email của bạn để xác thực tài khoản!');
     }
     }
 }

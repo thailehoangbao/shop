@@ -8,7 +8,7 @@
                     <div class="wrap-table-shopping-cart">
                         <table class="table-shopping-cart">
                             <tr class="table_head">
-                                <th class="column-1 text-center" style="padding-left: 20px!important;">Product</th>
+                                <th class="column-1 text-center" style="padding-left: 20px!important;">Hình Ảnh</th>
                                 <th class="column-2 text-center" style="width: 300px;">Name</th>
                                 <th class="column-3 text-center">Price</th>
                                 <th class="column-4 text-center">Amount</th>
@@ -87,35 +87,7 @@
 
 
 
-                            <!-- <div class="p-t-15">
-                                <span class="stext-112 cl8">
-                                    Calculate Shipping
-                                </span>
 
-                                <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                    <select class="js-select2" name="time">
-                                        <option>Select a country...</option>
-                                        <option>USA</option>
-                                        <option>UK</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-
-                                <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-                                </div>
-
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
-                                </div>
-
-                                <div class="flex-w">
-                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                        Update Totals
-                                    </div>
-                                </div>
-
-                            </div> -->
                         </div>
                     </div>
 
@@ -172,9 +144,9 @@
 
 
                     <input type="hidden" name="lists" value="{{ json_encode($lists) }}">
-                    
+
                     <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Proceed to Checkout
+                        Thanh Toán
                     </button>
                 </div>
             </div>

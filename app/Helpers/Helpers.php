@@ -110,6 +110,11 @@ class Helpers
             return '<span class="btn btn-success btn-xs">Đã giao hàng</span>';
         }
     }
+
+    public static function convertImageToBase64($imagePath) {
+        $imageData = file_get_contents($imagePath);
+        return 'data:image/' . pathinfo($imagePath, PATHINFO_EXTENSION) . ';base64,' . base64_encode($imageData);
+    }
 }
 
 // Vào composer.json thêm dòng sau: "files": ["app/Helpers/Helpers.php"]

@@ -19,13 +19,6 @@ class PaymentController extends Controller
 
     public function index(Request $request)
     {
-        // // Decode the JSON encoded lists data
-        // $lists = json_decode($request->lists, true);
-        // // Convert each item in the list to an object
-        // $convertedLists = collect($lists)->map(function ($item) {
-        //     $item['product'] = (object) $item['product'];
-        //     return (object) $item;
-        // });
         $lists = $this->paymentServices->getOrder($request);
         return view('client.payment.payment', [
             'lists' => $lists
@@ -43,10 +36,10 @@ class PaymentController extends Controller
             Mail::send('email.formemail', ['token' => $token,'id'=> $id], function ($message) use ($token,$id, $to_email) {
                 $message->to($to_email, $token, $id)
                     ->subject('Your Order Shopping');
-                $message->from('diamondriverside.vip@gmail.com', 'Shopping');
+                $message->from('diamondriverside.vip@gmail.com', 'MiuMiu Store');
             });
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Vui lòng kiểm tra email của bạn!');
         }
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Đã có lỗi xảy ra!');
     }
 }
