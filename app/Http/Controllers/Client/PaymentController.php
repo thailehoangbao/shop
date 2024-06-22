@@ -38,6 +38,13 @@ class PaymentController extends Controller
                     ->subject('Your Order Shopping');
                 $message->from('diamondriverside.vip@gmail.com', 'MiuMiu Store');
             });
+
+            Mail::send('email.notificatepayment', ['email' => $to_email,'id'=> $id ], function ($message) use ($to_email, $id) {
+                $message->to('diamondriverside.vip@gmail.com', $to_email, $id)
+                    ->subject('You have new payment!!!');
+                $message->from('diamondriverside.vip@gmail.com', 'MiuMiu Store');
+            });
+
             return redirect()->route('home')->with('success', 'Vui lòng kiểm tra email của bạn!');
         }
         return redirect()->back()->with('error', 'Đã có lỗi xảy ra!');
