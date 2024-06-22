@@ -11,7 +11,7 @@ class OrderServices
     public function create($request, $user_id)
     {
         try {
-            $total_price = $request->amount * $request->price_choice;
+            $total_price = floatval($request->amount) * floatval($request->price_choice);
             $order = new Order();
             $order->product_id = $request->product_id;
             $order->user_id = $user_id;

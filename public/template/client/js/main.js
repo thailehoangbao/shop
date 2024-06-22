@@ -55,41 +55,6 @@
                 },
             });
         });
-
-        // $("#register-form").on("submit", function (e) {
-        //     e.preventDefault();
-
-        //     var formData = {
-        //         email: $("#r-email").val(),
-        //         password: $("#r-password").val(),
-        //         name: $("#r-name").val(),
-        //         role: $("#r-role").val(),
-        //     };
-
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "/client/register", // Đường dẫn URL phải đúng theo route bạn định nghĩa
-        //         data: formData,
-        //         success: function (response) {
-        //             if (response.success) {
-        //                 saveUserToLocalStorage(response.user);
-        //                 window.location.href = "/"; // Chuyển hướng đến trang chủ
-        //             } else {
-        //                 $("#error-message").text(response.message);
-        //             }
-        //         },
-        //         error: function (xhr) {
-        //             var errors = xhr.responseJSON.errors;
-        //             var errorMessage = "";
-        //             for (var error in errors) {
-        //                 if (errors.hasOwnProperty(error)) {
-        //                     errorMessage += errors[error] + "\n";
-        //                 }
-        //             }
-        //             $("#error-message").text(errorMessage);
-        //         },
-        //     });
-        // });
     });
 
     function deleteUser() {
@@ -391,16 +356,25 @@
             "src",
             "/storage/uploads/" + product.thumb
         );
-        if(product.price_sale != 0) {
-            product.price = product.price - (product.price * product.price_sale) / 100;
-            product.price_s = product.price_s - (product.price_s * product.price_sale) / 100;
-            product.price_l = product.price_l - (product.price_l * product.price_sale) / 100;
+        if (product.price_sale != 0) {
+            product.price =
+                product.price - (product.price * product.price_sale) / 100;
+            product.price_s =
+                product.price_s - (product.price_s * product.price_sale) / 100;
+            product.price_l =
+                product.price_l - (product.price_l * product.price_sale) / 100;
         }
 
         // Set the values for the select options
-        $("#price_choice .price__m").text("Size M - "+ product.price.toLocaleString("vi-VN") + " VND");
-        $("#price_choice .price__s").text("Size S - "+ product.price_s.toLocaleString("vi-VN") + " VND");
-        $("#price_choice .price__l").text("Size L - "+ product.price_l.toLocaleString("vi-VN") + " VND");
+        $("#price_choice .price__m").text(
+            "Size M - " + product.price.toLocaleString("vi-VN") + " VND"
+        );
+        $("#price_choice .price__s").text(
+            "Size S - " + product.price_s.toLocaleString("vi-VN") + " VND"
+        );
+        $("#price_choice .price__l").text(
+            "Size L - " + product.price_l.toLocaleString("vi-VN") + " VND"
+        );
 
         // Set the values for the select options
         $("#price_choice .price_default").val(product.price);
@@ -423,9 +397,8 @@
         e.preventDefault();
 
         var product = $(".js-modal1").data("product");
+        console.log(product);
         var form = $(this).closest("form");
-        // var size = form.find('select[name="size"]').val();
-        // var color = form.find('select[name="color"]').val();
         var amount = form.find('input[name="num-product"]').val();
         var price_choice = form.find('select[name="price_choice"]').val();
 
@@ -437,22 +410,6 @@
                 value: product.id,
             })
             .appendTo(form);
-
-        // $("<input>")
-        //     .attr({
-        //         type: "hidden",
-        //         name: "size",
-        //         value: size,
-        //     })
-        //     .appendTo(form);
-
-        // $("<input>")
-        //     .attr({
-        //         type: "hidden",
-        //         name: "color",
-        //         value: color,
-        //     })
-        //     .appendTo(form);
 
         $("<input>")
             .attr({
