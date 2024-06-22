@@ -36,6 +36,7 @@ class PaymentServices
                 'address' => $request->address,
                 'phone' => $request->phone,
                 'lists' => $request->lists,
+                'last_total' => $request->last_total,
                 'timestamp' => now(),
             ];
 
@@ -49,6 +50,7 @@ class PaymentServices
             $payment->list = $request->lists;
             $payment->status = 0;
             $payment->notification = 0;
+            $payment->last_total = $request->last_total;
             $payment->user_id = auth()->id();
             $payment->save();
             return $payment;

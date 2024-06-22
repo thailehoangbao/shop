@@ -16,6 +16,7 @@ class Payment extends Model
         'list',
         'token',
         'notification',
+        'last_total'
     ];
     public function user()
     {

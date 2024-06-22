@@ -10,6 +10,7 @@
             <th>Address</th>
             <th>Status</th>
             <th>List</th>
+            <th>Last_total</th>
             <th>Updated_at</th>
             <th>Action</th>
         </tr>
@@ -30,6 +31,7 @@
                     <button type="submit" class="text-primary"> show detail</button>
                 </form>
             </td>
+            <td>{{ number_format($payment->last_total) }}</td>
             <td>{{ $payment['updated_at'] }}</td>
             <td class="d-flex">
                 <a href="/admin/payments/edit/{{ $payment->id}}" class="btn btn-warning"><i class="fa-solid fa-eye"></i></a>

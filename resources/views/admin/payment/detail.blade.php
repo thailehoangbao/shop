@@ -32,7 +32,7 @@
                 <th>Name</th>
                 <th>Hình Ảnh</th>
                 <th>Amount</th>
-                <th>Last_Price</th>
+                <th>Last_price</th>
                 <th>Time</th>
             </tr>
         </thead>

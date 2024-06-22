@@ -25,7 +25,7 @@
                                 </td>
                                 <td class="column-2 text-center" style="width: 300px;">{{ $item->product->name }}</td>
                                 <td class="column-3 text-center">{{number_format($item->product->price)}}</td>
-                                <td class="column-4 text-center">{{$item->product->discount/100}}%</td>
+                                <td class="column-4 text-center">{{$item->product->price_sale}}%</td>
                                 <td class="column-5 text-center">
                                     {{ $item->amount }}
                                 </td>
@@ -142,6 +142,7 @@
 
 
                     <input type="hidden" name="lists" value="{{ json_encode($lists) }}">
+                    <input hidden type="text" name="last_total" value="{{ \App\Helpers\Helpers::totalPrice($lists) }}">
 
                     <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                         Thanh Toán
