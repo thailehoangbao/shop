@@ -1,9 +1,9 @@
 (function ($) {
     "use strict";
 
-    function saveUserToLocalStorage(user, token) {
-        localStorage.setItem("user", JSON.stringify(user));
-    }
+    // function saveUserToLocalStorage(user, token) {
+    //     localStorage.setItem("user", JSON.stringify(user));
+    // }
 
     $(document).ready(function () {
         // Thiết lập token CSRF cho tất cả các yêu cầu AJAX
@@ -13,48 +13,49 @@
             },
         });
 
-        $("#login-form").on("submit", function (e) {
-            e.preventDefault();
 
-            var formData = {
-                email: $("#l-email").val(),
-                password: $("#l-password").val(),
-            };
+        // $("#login-form").on("submit", function (e) {
+        //     e.preventDefault();
 
-            $.ajax({
-                type: "POST",
-                url: "/client/login", // Đường dẫn URL phải đúng theo route bạn định nghĩa
-                data: formData,
-                dataType: "json",
-                success: function (response) {
-                    if (response.success) {
-                        const newUser = {
-                            ...response.user,
-                            token: response.token,
-                        };
-                        saveUserToLocalStorage(newUser);
-                        window.location.href = response.redirect_url; // Chuyển hướng đến trang chủ
-                        // Thêm đoạn script để reload lại trang
+        //     var formData = {
+        //         email: $("#l-email").val(),
+        //         password: $("#l-password").val(),
+        //     };
 
-                        window.addEventListener("load", function () {
-                            location.reload();
-                        });
-                    } else {
-                        $("#error-message").text(response.message);
-                    }
-                },
-                error: function (xhr) {
-                    var errors = xhr.responseJSON.errors;
-                    var errorMessage = "";
-                    for (var error in errors) {
-                        if (errors.hasOwnProperty(error)) {
-                            errorMessage += errors[error] + "\n";
-                        }
-                    }
-                    $("#error-message").text(errorMessage);
-                },
-            });
-        });
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/client/login",
+        //         data: formData,
+        //         dataType: "json",
+        //         success: function (response) {
+        //             if (response.success) {
+        //                 const newUser = {
+        //                     ...response.user,
+        //                     token: response.token,
+        //                 };
+        //                 saveUserToLocalStorage(newUser);
+        //                 window.location.href = response.redirect_url;
+        //                 // Thêm đoạn script để reload lại trang
+
+        //                 window.addEventListener("load", function () {
+        //                     location.reload();
+        //                 });
+        //             } else {
+        //                 $("#error-message").text(response.message);
+        //             }
+        //         },
+        //         error: function (xhr) {
+        //             var errors = xhr.responseJSON.errors;
+        //             var errorMessage = "";
+        //             for (var error in errors) {
+        //                 if (errors.hasOwnProperty(error)) {
+        //                     errorMessage += errors[error] + "\n";
+        //                 }
+        //             }
+        //             $("#error-message").text(errorMessage);
+        //         },
+        //     });
+        // });
     });
 
     function deleteUser() {
@@ -397,7 +398,6 @@
         e.preventDefault();
 
         var product = $(".js-modal1").data("product");
-        console.log(product);
         var form = $(this).closest("form");
         var amount = form.find('input[name="num-product"]').val();
         var price_choice = form.find('select[name="price_choice"]').val();
@@ -427,4 +427,6 @@
             .appendTo(form);
         form.submit();
     });
+
+   
 })(jQuery);

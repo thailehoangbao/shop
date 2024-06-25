@@ -9,6 +9,9 @@
 <!-- Slider -->
 @include('client.slider')
 
+<!-- Counter -->
+@include('client.countnumber')
+
 <!-- Banner -->
 @include('client.banner')
 

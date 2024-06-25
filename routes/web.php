@@ -25,6 +25,7 @@ use App\Http\Controllers\Client\Users\ClientLoginController;
 use App\Http\Controllers\Client\Users\ClientRegisterController;
 use App\Http\Controllers\Client\Users\FacebookController;
 use App\Http\Controllers\Client\Users\GoogleController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 

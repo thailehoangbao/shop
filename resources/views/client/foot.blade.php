@@ -125,3 +125,28 @@
         }
     });
 </script>
+
+</script>
+<script>
+    function animateCounter(element, start, end, duration) {
+        let startTime = null;
+
+        function updateCounter(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = Math.floor(progress * (end - start) + start);
+            element.textContent = value;
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        animateCounter(document.querySelector('#counter__year .counter__content'), 0, 5, 5000);
+        animateCounter(document.querySelector('#counter__team .counter__content'), 0, 25, 5000);
+        animateCounter(document.querySelector('#counter__client .counter__content'), 0, 500, 5000);
+    });
+</script>

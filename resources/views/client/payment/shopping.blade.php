@@ -82,10 +82,31 @@
                             <p class="stext-111 cl6 p-t-2">
                                 Free Ship 0đ
                             </p>
+                        </div>
+                    </div>
 
+                    <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                        <div class="size-208 w-full-ssm">
+                            <span class="stext-110 cl2">
+                                Shop Account:
+                            </span>
+                        </div>
 
-
-
+                        <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                            <p class="stext-111 cl6 p-t-2">
+                                <span style="font-weight: 700;">VIB BANK</span>
+                            </p>
+                            <p class="stext-111 cl6 p-t-2">
+                                <span>6307 040 600 45542</span>
+                            </p>
+                            <p class="stext-111 cl6 p-t-2">
+                                <span>THÁI LÊ HOÀNG BẢO</span>
+                            </p>
+                            <img src="{{asset('images/bank.jpg')}}" alt="info-bank" width="200" height="250">
+                            <p class="stext-111 cl6 p-t-2">
+                                <span style="font-weight: 700;">Nội Dung: </span>
+                                <span>HỌ TÊN + SDT</span>
+                            </p>
                         </div>
                     </div>
 
@@ -109,8 +130,8 @@
                                 <label for="phone" class="cl10">Phone: </label>
                                 <input type="text" placeholder="Enter your phone" name="phone" value="{{ old('phone') }}">
                                 @error('phone')
-                                    <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
-                                @enderror
+                            <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
+                            @enderror
                             </p>
 
 
@@ -119,10 +140,24 @@
                                 <label for="address" class="cl10">Address: </label>
                                 <input type="text" placeholder="Enter your address" name="address" value="{{ old('address') }}">
                                 @error('address')
-                                <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
-                                @enderror
+                            <div class="text-danger" style="font-size: 14px;user-select: none;">{{ $message }}</div>
+                            @enderror
                             </p>
 
+                        </div>
+                    </div>
+
+                    <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                        <div class="size-208 w-full-ssm">
+                            <span class="stext-110 cl2">
+                                Lưu ý:
+                            </span>
+                        </div>
+
+                        <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                            <p class="stext-111 cl6 p-t-2" style="color: red;font-style: italic;">
+                                Sau khi chuyển khoản bạn vui lòng lưu lại lệnh chuyển tiền. Sau đó bấm vào nút <span style="font-weight: 700;font-style: normal;">ĐÃ THANH TOÁN</span>. Chúng tôi sẽ gửi thông báo qua email của bạn!
+                            </p>
                         </div>
                     </div>
 
@@ -141,11 +176,12 @@
                     </div>
 
 
+
                     <input type="hidden" name="lists" value="{{ json_encode($lists) }}">
                     <input hidden type="text" name="last_total" value="{{ \App\Helpers\Helpers::totalPrice($lists) }}">
 
                     <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Thanh Toán
+                        Đã Thanh Toán
                     </button>
                 </div>
             </div>

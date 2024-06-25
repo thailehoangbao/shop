@@ -3371,4 +3371,48 @@ input.num-product::-webkit-inner-spin-button {
 .stext-105.cl3 {
     color: #333; /* Màu cho giá bình thường nếu không có giảm giá */
 }
+.container__counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
 
+.counter__style {
+  padding: 20px;
+  user-select: none;
+}
+
+.counter__content {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.8rem;
+  color: brown;
+  padding-left: 18px;
+  font-weight: 800;
+}
+
+.counter__sub_content {
+    font-family:'Courier New', Courier, monospace;
+  color: #000;
+  font-weight: 700;
+}
+
+.counter {
+  font-weight: 800;
+  font-family: Montserrat-Regular;
+  font-size: 1.2rem;
+  color: black;
+  padding-left: 15px;
+}
+
+#counter__year::after {
+display: none;
+}
+
+#counter__team::after {
+display: none;
+}
+#counter__client::after {
+display: none;
+}
