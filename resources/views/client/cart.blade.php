@@ -46,20 +46,23 @@
                     Total: {{ \App\Helpers\Helpers::totalPrice($lists) }} VND
                 </div>
 
-                <div class="header-cart-buttons flex-w w-full">
+                <div class="header-cart-buttons flex-w w-full" style="display: flex;">
                     <form action="{{ route('payment.index') }}" method="get">
                         @csrf
                         <!-- <input type="hidden" name="lists" value="{{ json_encode($lists) }}"> -->
-                        <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                        <!-- <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                             Payment
-                        </button>
+                        </button> -->
+
+                        <button type="submit" class="codepro-btn codepro-btn-3 hover-border-2" target="blank" title="Payment" style="margin: 10px 6px;min-width: 80px;"><span style="padding: 7px 12px;">PAYMENTS</span></button>
                     </form>
 
                     <form action="{{ route('orders.index')}}" method="get">
                         @csrf
-                        <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                        <!-- <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                             Check Out
-                        </button>
+                        </button> -->
+                        <button type="submit" class="codepro-btn codepro-btn-3 hover-border-2" target="blank" title="Check Out" style="margin: 10px 6px;min-width: 80px;"><span style="padding: 7px 8px;">CHECKOUT</span></button>
                     </form>
                 </div>
             </div>

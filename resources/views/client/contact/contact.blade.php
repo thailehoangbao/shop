@@ -27,9 +27,11 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                    <!-- <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                         Submit
-                    </button>
+                    </button> -->
+
+                    <center><button type="submit" class="codepro-btn codepro-btn-2 hover-slide-down" target="blank" title="Code Pro" ><span>SUBMIT</span></button></center>
                     @csrf
                 </form>
             </div>

@@ -3371,6 +3371,11 @@ input.num-product::-webkit-inner-spin-button {
 .stext-105.cl3 {
     color: #333; /* Màu cho giá bình thường nếu không có giảm giá */
 }
+
+/* ------------------------ */
+
+
+/* ------------------------- */
 .container__counter {
   display: flex;
   justify-content: center;

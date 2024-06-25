@@ -95,9 +95,10 @@
                     </div>
 
                     <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl10 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04" style="border-radius: 4px;">
+                        <!-- <button class="flex-c-m stext-101 cl10 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04" style="border-radius: 4px;">
                             Subscribe
-                        </button>
+                        </button> -->
+                        <center><button class="codepro-btn codepro-btn-2 hover-slide-left" target="blank" title="Subscribe" ><span>Subscribe</span></button></center>
                     </div>
                     @csrf
                 </form>
